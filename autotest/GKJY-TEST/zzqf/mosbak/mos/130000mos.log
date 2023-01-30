@@ -1,0 +1,2 @@
+2022-05-25 12:54:55 Wed - INFO - main.py - hisApplyDeduction - line: 21 - {'requestData': 'IGiC6JewA1UTkzMwTiwbrnUTC4YIxej9N+P/HG9uhz9pSSpvKMyFMTuyvjNDIGVPuXbZH8SsjWIxdQRh5QwtP+8/98JRGIdsfljYl22HH9EaeO+SpUnhDyJgP1vOWFx2Uxc8aKWwObioJBKrETvqgqm+3EFik3bzYPyjambJWMQ=', 'appId': 'HIS20220509DLT'}
+2022-05-25 12:54:55 Wed - INFO - main.py - hisApplyDeduction - line: 52 - b'{"timestamp":"2022-05-25T04:54:55.493+0000","status":500,"error":"Internal Server Error","message":"No message available","path":"/hosp/HIS20220509DLT/transaction"}'

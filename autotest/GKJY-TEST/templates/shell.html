@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="{{url_for('static', filename='css/global.css')}}">
+<link rel="icon" href="{{url_for('static',filename='image/favicon.ico')}}" type="image/x-icon"/>
+<title>脚本执行结果</title>
+<style type="text/css">
+    table, th {table-layout: fixed; border: 2px solid #369; border-collapse: collapse; width: 100%;}
+    td { white-space: nowrap; overflow: hidden; text-overflow:ellipsis; }
+
+</style>
+</head>
+<body>
+  <audio id="vdo" {{result[5]}} loop>
+  <!-- 如果浏览器不支持，则会呈现下面内容 -->
+  <p>你的浏览器不支持HTML5音频，你可以<a href="{{url_for('static',filename='vidio/tuihou.mp3')}}">下载</a>这个音频文件。</p>
+  <source src="{{url_for('static',filename='vidio/tuihou.mp3')}}" type="audio/ogg">
+  </audio>
+<h1>脚本执行结果</h1>
+<a href="/">index</a>
+ || <a href="shelllist">脚本自动化</a>
+ || <a href="rule">字段规则</a>
+<hr />
+<form action="/shelllog" method="get">
+ID：<input name="myid" value="" />
+模块:<input list="namelist" value="" name="interface" autocomplete="off" />
+<datalist id="namelist">
+{% for i in result[3] %}
+<option>{{i[0]}}</option>
+{% endfor %}
+</datalist>
+当前页数：<input name="page" value="" />
+执行结果：<input list="reslist" name="result" autocomplete="off" value="" />
+<datalist id="reslist">
+<option>Success</option>
+<option>Faile</option>
+<option>Error</option>
+</datalist>
+<button>GO</button>
+<p style="display:inline">total: {{result[1]}} | totalpage: {{result[2]}}</p>
+</form>
+<table id="customers">
+<thead>
+<tr>
+<th class="interId">id </th><th class="interMode">模块</th><th>接口请求描述</th><th>接口地址</th><th>请求参数</th><th>请求响应</th><th class="interCode">响应码</th><th class="interRespon">响应用时</th><th class="interE">执行结果</th><th class="interInputTime">执行时间</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th class="interId">id </th><th class="interMode">模块</th><th>接口请求描述</th><th>接口地址</th><th>请求参数</th><th>请求响应</th><th class="interCode">响应码</th><th class="interRespon">响应用时</th><th class="interE">执行结果</th><th class="interInputTime">执行时间</th>
+</tr>
+</tfoot>
+<tbody>
+{% for i in result[0] %}
+<tr>
+<td class="interId">{{i[0]}}</td><td title="{{i[1]}}" class="interMode">{{i[1]}}</td><th>{{i[8]}}</th><td title="{{i[2]}}">{{i[2]}}</td><td title="{{i[3]}}">{{i[3]|safe}}</td><td title="{{i[4]}}">{{i[4]}}</td><td class="interCode">{{i[5]}}</td><td class="interRespon">{{i[6]}}</td>
+{% if i[9] == "Success" %}
+<td id="result">{{i[9]}}</td>
+{% else %}
+<td id="result" style="color:red">{{i[9]}}</td>
+{% endif %}
+<td class="interInputTime">{{i[7]}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</body>
+</html>

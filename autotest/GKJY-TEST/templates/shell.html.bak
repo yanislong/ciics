@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>日志</title>
+<link rel="icon" href="{{url_for('static',filename='image/favicon.ico')}}" type="image/x-icon"/>
+<style type="text/css">
+    body {
+      background-color:#66ccFF;
+      text-align:center;
+    }
+    p {
+      color: red;
+      font-size: 18px;
+    }
+    textarea {
+       font-size: 16px;
+       color: #4B0082;
+       background-color: #faf9de;
+    }
+</style>
+<h1>日志系统</h1>
+<a href="/">index</a>
+ || <a href="shelllist">脚本自动化</a>
+ || <a href="rule">字段规则</a>
+<hr />
+<span style="font-size:20px; color: red; margin-left:100px; margin-right:100px;  float:left;">* 黄色窗口内显示后台自动化脚本执行情况，执行完毕后，查看执行结果 *</span>
+<form action="shelllog">
+<button>手动刷新日志</button>
+</form>
+<textarea name="ttt" rows="42" cols="230">
+{{result[0]}}
+</textarea>
+<script>
+</script>
+</body>
+</html>

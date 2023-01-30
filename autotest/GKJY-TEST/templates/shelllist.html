@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>脚本列表</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="icon" href="{{url_for('static',filename='image/favicon.ico')}}" type="image/x-icon"/>
+<!--link rel="stylesheet" href="{{url_for('static', filename='css/global.css')}}" -->
+<style type="text/css">
+    body {
+      background-color:#66ccFF;
+      text-align:center;
+    }
+    table.dataintable {
+      margin-top:15px;
+      border-collapse:collapse;
+      border:1px solid #aaa;
+      width:90%;
+      bgcolor:#000;
+    }
+    table.dataintable th {
+      vertical-align:baseline;
+      padding:5px 15px 5px 6px;
+      background-color:#3F3F3F;
+      border:1px solid #3F3F3F;
+      text-align:left;
+      color:#fff;
+    }
+    table.dataintable td {
+      vertical-align:text-top;
+      padding:6px 15px 6px 6px;
+      border:1px solid #aaa;
+    }
+</style>
+</head>
+<body>
+<h1>自动化测试平台</h1>
+<a href="/">index</a>
+ || <a href="shelllog">脚本自动化执行结果</a>
+ || <a href="rule">字段规则</a>
+ || <a href="help" target="view_window">测试助手</a>
+<hr />
+<table class="dataintable">
+<thead>
+<tr>
+<th>模块</th><th>自动化执行测试的功能</th><th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2" style="width:200px">TPA理赔系统</td>
+<td>tpa 变更案件</td>
+<td rowspan="2">
+<form method="post" action="/runanjian"><input type="hidden" name="m" value="dev" /><button>执行脚本</button></form>
+</td>
+</tr>
+<tr><td>邮箱注册</td></tr>
+<tr>
+<td rowspan="5" style="width:200px">收银台系统</td>
+<td>生成订单并完成支付</td>
+<td rowspan="5">
+<form method="post" action="/runpay"><input type="hidden" name="m" value="dev" /><button>执行脚本</button></form>
+</td>
+</tr>
+<tr><td>分页查询所有订单</td></tr>
+<tr><td>分页查询所有商品</td></tr>
+<tr><td>查询直付卡号</td></tr>
+<tr><td>查询用户信息</td></tr>
+<tr>
+<td>Front</td>
+<td>供应商列表</td>
+<td><button>执行脚本</button></td></tr>
+</tbody>
+</table>
+</table>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>骞云</title>
+  <style type="text/css">
+    table { border-collapse:collapse; font:12px }
+    th { background: #f4f4f4; cursor: pointer }
+    th,td { padding:5px; border:black solid 1px; white-space:nowrap }
+    th.sorted.ascending:after { content: "  \2191" }
+    th.sorted.descending:after { content: " \2193" }
+    th.no-sort,th.no-sort:hover { background: #f4f4f4; cursor: not-allowed }
+  </style>
+</head>
+<body>
+<center><h1>骞云接口性能监测 (POST)</h1></center>
+<a href="qianyunGET">骞云GET</a>
+<!--<form action="/qianyunGET" method="get">
+<button>骞云GET</button>
+</form>
+<form action="/qianyunPOST" method="get">
+<button>骞云POST</button>
+</form>-->
+<p>执行策略：并发50个接口，每次请求间隔60+S iterative: 100</p>
+<div class="tb1">
+<form action="/qianyunPOST" method="get">
+接口名称:<input list="namelist" value="" name="interface" />
+<datalist id="namelist">
+{% for i in result[4] %}
+<option>{{i[0]}}</option>
+{% endfor %}
+</datalist>
+
+id:<input value="" name="id" />
+page:<input value="{{result[5]}}" name="page" />
+<input type="submit" value="search" />
+</form>
+<br />
+<table>
+<thead>
+  <tr>
+<th>id </th><!--<th>DNS解析用时</th>-->
+<th>服务端连接完成 </th><th>开始传输数据</th>
+<th>请求总时间</th><th>上传数据</th>
+<th>下载数据</th><th>code</th><th>生成时间</th>
+<th>接口名称</th>
+</tr>
+</thead>
+<tfoot>
+ <tr>
+<th>id</th><!--<th>DNS解析用时</th>-->
+<th>服务端连接平均用时</th><th>开始传输数据平均用时</th>
+<th>请求时间平均用时</th><th>上传总合</th>
+<th>下载总和</th><th>code</th><th>生成时间</th>
+<th>接口名称</th>
+</tr>
+ <tr>
+<th>id</th><!--<th>DNS解析用时</th>-->
+<th>{{result[2][0]}}</th><th>{{result[2][1]}}</th>
+<th>{{result[2][2]}}</th><th>{{result[2][3]}} KB</th>
+<th>{{result[2][4]}} KB</th><th></th><th></th>
+<th></th>
+</tr>
+</tfoot>
+<tbody>
+{% for i in result[0] %}  
+  <tr>
+<td>{{i[0]}}</td><!--<td>{{i[1]}}</td>-->
+<td>{{i[2]}}</td><td>{{i[3]}}</td>
+<td>{{i[4]}}</td><td>{{i[5]}} KB</td>
+<td>{{i[6]}} KB</td><td>{{i[9]}}</td><td>{{i[7]}}</td>
+<td>{{i[8]}}</td></tr>  
+{% endfor %} 
+</tbody>
+</table>
+<p>total: {{result[1][0][0]}}</p>
+<p>totalPage: {{result[3]}}</p>
+</div>
+</body>
+</html>

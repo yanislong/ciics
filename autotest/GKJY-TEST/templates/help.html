@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <title>help</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <meta name="description" content="">
+  <link rel="icon" href="{{url_for('static',filename='image/favicon.ico')}}" type="image/x-icon"/>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/global.css')}}">
+  <!--link href="https://fonts.loli.net/css?family=Quicksand:400" rel="stylesheet"-->
+  <!--link charset="utf-8" href="{{url_for('static',filename='css/mikutap.css')}}" rel="stylesheet"-->
+  <script src="{{url_for('static',filename='js/tanceng.js')}}"></script>
+  <script src="{{url_for('static',filename='js/global.js')}}"></script>
+<script>
+</script>
+</head>
+<body>
+<a href="/">index</a>
+ || <a href="interfaceRespondList">接口请求结果</a>
+ || <a href="integrate">接口集成测试</a>
+ || <a href="collvalue">前后端对接文档</a>
+ || <a href="rule">字段规则</a>
+<hr />
+      <h1><a href="http://24mail.chacuo.net/" target="view_window">临时邮箱注册</a></h1>
+      <h1><a href="https://yunjiema.net/zhongguohaoma/" target="view_window">在线接收手机验证码</a></h1>
+      <h1 style="font-size:24px">文件转成二进制 <input type="" name="fileBin" onclick="fileBinary();" placeholder="请点击上传文件" /></h1>
+      <h1 style="font-size:24px">图片转成base64 <input type="" name="fileBase" onclick="fileBase();"  placeholder="请点击上传图片" /></h1>
+      <h1 style="font-size:24px">文件转为字符串,可作为接口参数传递 <input type="" name="fileBase" onclick="fileStr();"  placeholder="请点击上传文件" /></h1>
+<div id="shade3" class="c3 hide"></div>
+<div id="moda3" class="c4 hide">
+<h2>转换后结果</h2>
+<p><textarea id="encodedesc" name="encodedesc2" rows="30" cols="75"></textarea></p>
+<p><input type="button" value="取消" onclick="Hide3();"></p>
+</div>
+</body>
+</html>

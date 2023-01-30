@@ -1,0 +1,182 @@
+h1{text-align: center; color: #fff; font-family:Quicksand,"游ゴシック","Yu Gothic","游ゴシック体",YuGothic,"Yu Gothic UI","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","Meiryo UI","メイリオ",Meiryo,sans-serif;}
+h2{text-align: center;}
+a{font-size: 22px; font-weight: bold; color: #eee; display: inline-block; text-align: center; font-family:Quicksand,"游ゴシック","Yu Gothic","游ゴシック体",YuGothic,"Yu Gothic UI","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","Meiryo UI","メイリオ",Meiryo,sans-serif;}
+a:link,a:visited{
+ text-decoration:none;  /*超链接无下划线*/
+}
+a:hover{
+ text-decoration:underline;  /*鼠标放上去有下划线*/
+}
+/*body {background-image: url('../image/page.jpg'); background-size: 100% 100%}*/
+body {background-color: #7cc; background-size: 100% 100%}
+/*table,th {table-layout: fixed; word-break: break-all; word-wrap: break-word; border:2px solid #ff0000; border-collapse: collapse; width: 100%}
+td {table-layout: fixed; word-break: break-all; word-wrap: break-word; border:2px solid #ff0000; border-collapse: collapse; }*/
+/*div {margin: 20px;}
+#runmokuai span { font-size: 18px; color: #000; margin: 10px;}
+#bmokuai {float: left; margin: 50px;}*/
+
+table tr:nth-child(even){background: #efe;}
+
+/*表格立体悬停效果*/
+tbody tr:hover {
+     background: linear-gradient(#fff,#aaa);
+     font-size: 17px;
+}
+ 
+
+
+.hide{
+            display: none;
+        }
+
+/*新增接口弹出div样式*/
+.c1{
+            position: fixed;
+            top:0;
+            bottom: 0;
+            left:0;
+            right: 0;
+            background: rgba(0,0,0,.5);
+            z-index: 2;
+        }
+.c2{
+            background-color: white;
+            position: fixed;
+            width: 700px;
+            height: 600px;
+            top: 30%;
+            left: 40%;
+            z-index: 3;
+            margin-top: -150px;
+            margin-left: -200px;
+        }
+#modal p {
+			margin-left:80px;
+		}
+
+/*编辑接口弹出div样式*/
+.c3{
+            position: fixed;
+            top:0;
+            bottom: 0;
+            left:0;
+            right: 0;
+            background: rgba(0,0,0,.5);
+            z-index: 2;
+}
+
+.c4{
+            background-color: white;
+            position: fixed;
+            width: 700px;
+            height: 600px;
+            top: 30%;
+            left: 40%;
+            z-index: 3;
+            margin-top: -150px;
+            margin-left: -200px;
+}
+
+#moda2 p {
+    margin-left:80px;
+}
+#moda3 p {
+    margin-left:80px;
+}
+
+#editinter{
+    display: block;
+    margin-top: 2px;
+    width: 45px;
+    height: 22px;
+    cursor: pointer;/*设置鼠标悬浮时，鼠标的样式*/
+    font-size: 0;/*hahahhahahahahaha,这里是我脑洞大发，把字体设置为0，但是这样一来没有字体撑开，它会很小很小，所以在上面制定了宽度和高度*/
+    z-index: 9;
+}
+
+/*表格每列宽带设置*/
+#result{
+    width: 100px;
+    color: green;
+    font-weight: bold;
+}
+
+.interId{
+    width: 50px;
+}
+
+.interMode{
+    width: 150px;
+}
+
+.interDesc{
+    width: 200px;
+}
+
+.interAuthor{
+    width: 70px;
+}
+
+.interFormat{
+    width: 100px;
+}
+
+.interOption{
+    width: 80px;
+}
+
+.interResult{
+    width: 100px;
+}
+
+.interInputTime{
+    width: 180px;
+}
+
+.interParam{
+    width: 300px;
+    vertical-align:top;
+}
+.interOperat{
+    width: 100px;
+}
+
+.interE{
+    width: 100px;
+}
+
+.interRespon{
+    width: 80px;
+}
+
+.interCode{
+    width: 60px;
+}
+
+/*表格样式*/
+#customers{
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  width: 100%;
+  border-collapse:collapse;
+  border-spacing: 10px;
+  z-index: -1;
+}
+#customers td, #customers th{
+  font-size:1em;
+  border: 2px solid #fff;
+  padding:3px 7px 2px 7px;
+}
+#customers thead{
+  font-size: 18px;
+  text-align:center;
+  padding-top:5px;
+  padding-bottom:4px;
+  background-color:#48b481;
+}
+#customers tfoot{
+  font-size: 18px;
+  text-align:center;
+  padding-top:5px;
+  padding-bottom:4px;
+  background-color:#48b481;
+}

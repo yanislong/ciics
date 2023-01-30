@@ -1,0 +1,5 @@
+virtualenv==16.7.4
+pymysql==0.9.3
+Flask==1.1.1
+requests==2.22.0
+xlrd==1.2.0

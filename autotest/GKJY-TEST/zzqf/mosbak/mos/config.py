@@ -1,0 +1,39 @@
+#appId = "CIICS20180808"
+#testUrl = "http://106.14.163.108/hosp/" + appId + "/transaction"
+#testUrl = "https://sitmos.ciics.cn/hosp/" + appId + "/transaction"
+
+#前置机地址
+appId = "HIS20220509DLT"
+testUrl = "http://36.110.28.196:9099/hosp/" + appId + "/transaction"
+
+#mos地址
+#testUrl = "http://10.9.19.83:10002/directComp/HIS20220509DLT/0"
+
+#邹凌本地地址
+#testUrl = "http://192.168.97.106:10002/directComp/HIS20220509DLT/0"
+
+#申请扣费
+mosReq = {}
+mosReq["requestData"] = ""
+mosReq["appId"] = appId
+
+#前置机
+#公钥
+pub_key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCEiAUtlYa7b6aitkDTjGQt7PT8tGQWNQWsnzzR1LcpHk4GyQ1WvKDSmvbhtbavH05gf93wlbvsn0luIifztPDvlBBGrsxHLovN9FaXY9RQ2El4S5EBcWcbyeWDrhU2yFrO3WwQjtbLpSiPwzYa4uPgQf2hyODGJ9JNG5djtKtQ4QIDAQAB"
+
+#私钥
+pri_key = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAISIBS2VhrtvpqK2QNOMZC3s9Py0ZBY1BayfPNHUtykeTgbJDVa8oNKa9uG1tq8fTmB/3fCVu+yfSW4iJ/O08O+UEEauzEcui830Vpdj1FDYSXhLkQFxZxvJ5YOuFTbIWs7dbBCO1sulKI/DNhri4+BB/aHI4MYn0k0bl2O0q1DhAgMBAAECgYA743drjOkwZBjJ6E/NCODwO+bNFvsvadBhnCeQrm4CP7aErG/BpUWLRgmQH1wpMJ1rT/zLze341FYLVZX2M+q3vlgoTMvJkqA7zfCtzvI+Yq913ZhYFM+wogL6nEthHbeBgFkod5hUe+DNvXZTa4iUm1iaOCxNGxvroQQEOxbK0QJBAOOuZgtpkcUhNAFfO2QBA0OgJNVm06ULAWCi0tk/gewYu5Ga3der5WKc2jTzLJIrJCgDS5ulXj9aTsa03foo9FUCQQCVA/OzAUjYR+QSeqRdHSgkm2vYuZKkFo5ioAR8/ehNNRb9D+wpwfu4y/3EgyZz0T10dto4RmG3GeCAMhlw3lZdAkEA0/p2hZ+XmVrNiY15xSTwPhEm2gzvdhUmBivydVQciY2JbQosC3W+jq6MtonFcJ17/0j6JwKzGfbhqz2QAi4JNQJANETqmoN81cCB06mJNdAgYJbTwXV2ZnAzCY0vhdhaP5q7sZCAOjV84llLbj7CoiVm9Q8rhEnLxLoi8VShb+HNUQJAdTI4DD0Z7MkmBMSN48cgu5TTRp3OqP34mPM1uazGwJ1D3TB/nQehaegEGkFJSaNt4iVIDBD2f4RgwUFOPA8i5Q=="
+
+#mos
+apub_key = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAK1Zf09Aeyx/x/40tC3SLpfB/+4r85zHBkL+oz8Vrysn2azGW4bS61dir7+bUA8df4Gq++HLhWLr3ECofJ9+8ocCAwEAAQ=="
+bpub_key = """MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYgqwGWYLcmBZ6yXotHCkJ8V4umUMslybFv/kIUYY4mbJkfoX8D43usShU5cNsHEsriDvoHrOk9y0NrzRHKCbuKcy/LYq5ruPPQFiCHVXblvL7W9r4PCil3ythozSXbU7jHBaDM/HtXdIn7bnb7Dqm/jmMVDSerNPF27lbOGK3rQIDAQAB"""
+
+#医院私钥
+his_pri_key = """MIIBVQIBADANBgkqhkiG9w0BAQEFAASCAT8wggE7AgEAAkEArVl/T0B7LH/H/jS0
+LdIul8H/7ivznMcGQv6jPxWvKyfZrMZbhtLrV2Kvv5tQDx1/gar74cuFYuvcQKh8
+n37yhwIDAQABAkEAhKD69Mni89L4UxhD2uL63wWBKNrb0tG7irqEcBnJIfxif903
++ymyfAFxHHa2JJNyCCKqWyMkOwmdaE3/Ff2nAQIhAN8I4On1ugX/DHvXR+taX4/4
+DPunYVf5lupNEpz9uqVHAiEAxvimJXuQWy541TDVwQ7V8EuaK1RvWO4I5sqSJlAA
+6MECIQCsZg6Eih6KuAUMTPIYqDip7lEKzOzftdvDrGOw2ifFzQIgP76BXBjOEqg8
+xfAzSvp5x9Ywuhj+4zq/V1EmqWeQIwECICLfeguPTWWt9S5XEFgwSm3q7FhUxt7g
+IWzELNnSPie4"""

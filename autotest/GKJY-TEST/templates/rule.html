@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="icon" href="{{url_for('static',filename='image/favicon.ico')}}" type="image/x-icon"/>
+<link rel="stylesheet" href="{{url_for('static',filename='css/global.css')}}">
+<title>code</title>
+<style type="text/css">
+/*    table,th {table-layout: fixed; word-break: break-all; word-wrap: break-word; border:2px solid #ff0000; border-collapse: collapse; width: 50%}
+    td {table-layout: fixed; word-break: break-all; word-wrap: break-word; border:2px solid #ff0000; border-collapse: collapse; }*/
+</style>
+</head>
+<body>
+<h1>字段规则</h1>
+<a href="/">index</a> 
+ || <a href="interfaceList">待请求接口列表</a>
+ || <a href="interfaceRespondList">接口请求结果</a>
+ || <a href="integrate">接口集成测试</a>
+ || <a href="collvalue">前后端对接文档</a>
+<hr />
+<table id="customers">
+<thead>
+<tr>
+<th>字段名</th><th>规则描述</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th>字段名</th><th>规则描述</th>
+</tr>
+</tfoot>
+<tbody>
+{% for i,j in result[0].items() %}
+<tr>
+<th>{{i}}</th><th>{{j}}</th>
+</tr>
+{% endfor %}
+</tbody>
+</form>
+</table>
+</body>
+</html>

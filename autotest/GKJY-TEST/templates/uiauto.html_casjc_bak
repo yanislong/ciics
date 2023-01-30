@@ -1,0 +1,146 @@
+<html>
+<head>
+<title>UI自动化</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="icon" href="{{url_for('static',filename='image/favicon.ico')}}" type="image/x-icon"/>
+<!--link rel="stylesheet" href="{{url_for('static', filename='css/global.css')}}" -->
+<style type="text/css">
+    body {
+      background-color:#66ccFF;
+      text-align:center;
+    }
+    table.dataintable {
+      margin-top:15px;
+      border-collapse:collapse;
+      border:1px solid #aaa;
+      width:90%;
+      bgcolor:#000;
+    }
+    table.dataintable th {
+      vertical-align:baseline;
+      padding:5px 15px 5px 6px;
+      background-color:#3F3F3F;
+      border:1px solid #3F3F3F;
+      text-align:left;
+      color:#fff;
+    }
+    table.dataintable td {
+      vertical-align:text-top;
+      padding:6px 15px 6px 6px;
+      border:1px solid #aaa;
+    }
+</style>
+</head>
+<body>
+<h1>先进计算中心统一服务系统UI自动化测试平台</h1>
+<a href="/">index</a>
+ || <a href="uiauto_www">UI自动化执行结果</a>
+ || <a href="rule">字段规则</a>
+ || <a href="help" target="view_window">测试助手</a>
+<hr />
+<table class="dataintable">
+<thead>
+<tr>
+<th>模块</th><th>UI自动化执行测试的功能</th><th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="4" style="width:200px">www官网</td><td>用户登录</td><td rowspan="4">
+<form method="post" action="/uiauto_redirect_w"><input type="hidden" name="m" value="dev" /><button>执行dev</button></form>
+<form method="post" action="/uiauto_redirect_w"><input type="hidden" name="m" value="test" /><button>执行test</button></form>
+<form method="post" action="/uiauto_redirect_w"><input type="hidden" name="m" value="std" /><button>执行std</button></form></td>
+</td>
+</tr>
+<tr><td>邮箱注册</td></tr>
+<tr><td>手机号注册</td></tr>
+<tr><td>通过首页试用按钮进行登录</td></tr>
+</tbody>
+</table>
+<table class="dataintable">
+<thead>
+<tr>
+<th>模块</th><th>UI自动化执行测试的功能</th><th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="17" style="width:200px">console控制台</td><td>用户登录</td><td rowspan="17">
+<form method="post" action="/uiauto_redirect_c"><input type="hidden" name="m" value="dev" /><button>执行dev</button></form>
+<form method="post" action="/uiauto_redirect_c"><input type="hidden" name="m" value="test" /><button>执行test</button></form>
+<form method="post" action="/uiauto_redirect_c"><input type="hidden" name="m" value="std" /><button>执行std</button></form></td>
+</td>
+</tr>
+<tr><td>登录webshell</td></tr>
+<tr><td>共享存储上传文件</td></tr>
+<tr><td>共享存储删除文件</td></tr>
+<tr><td>用户管理-新增企业用户</td></tr>
+<tr><td>用户管理-编辑企业用户</td></tr>
+<tr><td>用户管理-重置企业用户密码</td></tr>
+<tr><td>用户管理-修改企业用户密码</td></tr>
+<tr><td>用户管理-新增工作组</td></tr>
+<tr><td>用户管理-云存储调整配额</td></tr>
+<tr><td>用户管理-云存储权限设置</td></tr>
+<tr><td>用户管理-分配云主机</td></tr>
+<tr><td>用户管理-分配云硬盘</td></tr>
+<tr><td>个人中心-修改密码</td></tr>
+<tr><td>个人中心-修改基本信息(手机号，邮箱需手动验证)</td></tr>
+<tr><td>申请试用（包含销售总监是否收到申请）</td></tr>
+<tr><td>提交工单(高性能技术-包含上传附件)</td></tr>
+</tbody>
+</table>
+<table class="dataintable">
+<thead>
+<tr>
+<th>模块</th><th>UI自动化执行测试的功能</th><th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="40" style="width:200px">admin管理后台</td><td>新建内部网络</td><td rowspan="40">
+<form method="post" action="/uiauto_redirect_a"><input type="hidden" name="m" value="dev" /><button>执行dev</button></form>
+<form method="post" action="/uiauto_redirect_a"><input type="hidden" name="m" value="test" /><button>执行test</button></form>
+<form method="post" action="/uiauto_redirect_a"><input type="hidden" name="m" value="std" /><button>执行std</button></form></td>
+</tr>
+<tr><td>编辑内部网络</td></tr>
+<tr><td>删除内部网络</td></tr>
+<tr><td>新建公网IP</td></tr>
+<tr><td>删除公网IP</td></tr>
+<tr><td>新增计费管理(高性能技算,云主机,数据存储,网络资源)</td></tr>
+<tr><td>编辑计费管理</td></tr>
+<tr><td>删除计费管理</td></tr>
+<tr><td>新建企业单位</td></tr>
+<tr><td>编辑企业单位</td></tr>
+<tr><td>新建企业管理员</td></tr>
+<tr><td>新建企业普通用户</td></tr>
+<tr><td>编辑企业用户</td></tr>
+<tr><td>重置企业用户密码</td></tr>
+<tr><td>修改企业用户密码</td></tr>
+<tr><td>新建系统用户</td></tr>
+<tr><td>编辑系统用户</td></tr>
+<tr><td>系统用户重置密码</td></tr>
+<tr><td>修改系统用户密码</td></tr>
+<tr><td>申请资源-灵活配置-高性能计算-共享型</td></tr>
+<tr><td>申请资源-灵活配置-云主机-云主机</td></tr>
+<tr><td>申请资源-灵活配置-数据存储-文件存储</td></tr>
+<tr><td>申请资源-灵活配置-数据存储-云硬盘</td></tr>
+<tr><td>申请资源-灵活配置-网络资源-公网Ip</td></tr>
+<tr><td>价格审批</td></tr>
+<tr><td>生产合同</td></tr>
+<tr><td>合同审批</td></tr>
+<tr><td>确认参数-高性能计算-共享型</td></tr>
+<tr><td>确认参数-云主机-云主机</td></tr>
+<tr><td>确认参数-数据存储-文件存储</td></tr>
+<tr><td>确认参数-数据存储-云硬盘</td></tr>
+<tr><td>确认参数-网络资源-公网Ip</td></tr>
+<tr><td>配置资源-高性能计算-共享型</td></tr>
+<tr><td>配置资源-云主机-云主机</td></tr>
+<tr><td>配置资源-数据存储-文件存储</td></tr>
+<tr><td>配置资源-数据存储-云硬盘</td></tr>
+<tr><td>配置资源-网络资源-公网Ip</td></tr>
+<tr><td>合同管理-合同作废重签申请</td></tr>
+<tr><td>合同管理-合同作废重签审批</td></tr>
+</tbody>
+</table>
+</body>
+</html>

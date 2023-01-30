@@ -1,0 +1,297 @@
+2021-08-20 18:00:14 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 给付责任变更参数为空', 'data': None}
+2021-08-20 18:00:14 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:14 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 给付责任变更参数为空', 'data': None}
+2021-08-20 18:00:14 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:14 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 给付责任变更参数为空', 'data': None}
+2021-08-20 18:00:14 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:15 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 费用项目代码变更参数为空', 'data': None}
+2021-08-20 18:00:15 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:15 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 费用项目代码变更参数为空', 'data': None}
+2021-08-20 18:00:15 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:15 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 费用项目代码变更参数为空', 'data': None}
+2021-08-20 18:00:15 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:15 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 主要诊断变更参数为空', 'data': None}
+2021-08-20 18:00:15 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:15 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 主要诊断变更参数为空', 'data': None}
+2021-08-20 18:00:15 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:16 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 主要诊断变更参数为空', 'data': None}
+2021-08-20 18:00:16 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:16 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 客户交单日变更参数为空', 'data': None}
+2021-08-20 18:00:16 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:16 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 客户交单日变更参数为空', 'data': None}
+2021-08-20 18:00:16 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:16 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 客户交单日变更参数为空', 'data': None}
+2021-08-20 18:00:16 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:16 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'com.ciics.cscloud.tpa.service.component.claimCase.exception.CaseChangeException: 当前变更类型不支持该变更对象', 'data': None}
+2021-08-20 18:00:16 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:17 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'com.ciics.cscloud.tpa.service.component.claimCase.exception.CaseChangeException: 当前变更类型不支持该变更对象', 'data': None}
+2021-08-20 18:00:17 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:17 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'com.ciics.cscloud.tpa.service.component.claimCase.exception.CaseChangeException: 当前变更类型不支持该变更对象', 'data': None}
+2021-08-20 18:00:17 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:17 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 证件起止期变更参数为空', 'data': None}
+2021-08-20 18:00:17 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:17 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 证件起止期变更参数为空', 'data': None}
+2021-08-20 18:00:17 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:17 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 证件起止期变更参数为空', 'data': None}
+2021-08-20 18:00:17 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:17 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据日期变更参数为空', 'data': None}
+2021-08-20 18:00:17 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:18 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据日期变更参数为空', 'data': None}
+2021-08-20 18:00:18 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:18 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据日期变更参数为空', 'data': None}
+2021-08-20 18:00:18 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:18 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 领款银行账户变更参数为空', 'data': None}
+2021-08-20 18:00:18 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:18 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 领款银行账户变更参数为空', 'data': None}
+2021-08-20 18:00:18 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:18 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 领款银行账户变更参数为空', 'data': None}
+2021-08-20 18:00:18 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:18 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 住址变更参数为空', 'data': None}
+2021-08-20 18:00:18 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:19 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 住址变更参数为空', 'data': None}
+2021-08-20 18:00:19 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:19 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 住址变更参数为空', 'data': None}
+2021-08-20 18:00:19 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:19 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据类型变更参数为空', 'data': None}
+2021-08-20 18:00:19 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:19 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据类型变更参数为空', 'data': None}
+2021-08-20 18:00:19 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:19 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据类型变更参数为空', 'data': None}
+2021-08-20 18:00:19 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:20 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据号变更参数为空', 'data': None}
+2021-08-20 18:00:20 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:20 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据号变更参数为空', 'data': None}
+2021-08-20 18:00:20 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:20 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据号变更参数为空', 'data': None}
+2021-08-20 18:00:20 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:20 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 给付责任变更参数为空', 'data': None}
+2021-08-20 18:00:20 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:20 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 给付责任变更参数为空', 'data': None}
+2021-08-20 18:00:20 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:20 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 给付责任变更参数为空', 'data': None}
+2021-08-20 18:00:20 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:21 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 费用项目代码变更参数为空', 'data': None}
+2021-08-20 18:00:21 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:21 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 费用项目代码变更参数为空', 'data': None}
+2021-08-20 18:00:21 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:21 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 费用项目代码变更参数为空', 'data': None}
+2021-08-20 18:00:21 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:21 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 主要诊断变更参数为空', 'data': None}
+2021-08-20 18:00:21 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:21 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 主要诊断变更参数为空', 'data': None}
+2021-08-20 18:00:21 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:22 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 主要诊断变更参数为空', 'data': None}
+2021-08-20 18:00:22 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:22 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 客户交单日变更参数为空', 'data': None}
+2021-08-20 18:00:22 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:22 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 客户交单日变更参数为空', 'data': None}
+2021-08-20 18:00:22 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:22 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 客户交单日变更参数为空', 'data': None}
+2021-08-20 18:00:22 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:23 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'com.ciics.cscloud.tpa.service.component.claimCase.exception.CaseChangeException: 依据给定的参数无法获取对应的批次号', 'data': None}
+2021-08-20 18:00:23 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:23 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 0, 'msg': 'SUCCESS', 'data': None}
+2021-08-20 18:00:23 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:24 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'com.ciics.cscloud.tpa.service.component.claimCase.exception.CaseChangeException: 依据给定的参数无法获取对应的批次号', 'data': None}
+2021-08-20 18:00:24 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:24 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 证件起止期变更参数为空', 'data': None}
+2021-08-20 18:00:24 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:24 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 证件起止期变更参数为空', 'data': None}
+2021-08-20 18:00:24 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:24 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 证件起止期变更参数为空', 'data': None}
+2021-08-20 18:00:24 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:24 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据日期变更参数为空', 'data': None}
+2021-08-20 18:00:24 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:24 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据日期变更参数为空', 'data': None}
+2021-08-20 18:00:24 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:25 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据日期变更参数为空', 'data': None}
+2021-08-20 18:00:25 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:25 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 领款银行账户变更参数为空', 'data': None}
+2021-08-20 18:00:25 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:25 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 领款银行账户变更参数为空', 'data': None}
+2021-08-20 18:00:25 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:25 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 领款银行账户变更参数为空', 'data': None}
+2021-08-20 18:00:25 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:25 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 住址变更参数为空', 'data': None}
+2021-08-20 18:00:25 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:27 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 住址变更参数为空', 'data': None}
+2021-08-20 18:00:27 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:27 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 住址变更参数为空', 'data': None}
+2021-08-20 18:00:27 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:27 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据类型变更参数为空', 'data': None}
+2021-08-20 18:00:27 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:27 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据类型变更参数为空', 'data': None}
+2021-08-20 18:00:27 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:27 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据类型变更参数为空', 'data': None}
+2021-08-20 18:00:27 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:27 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据号变更参数为空', 'data': None}
+2021-08-20 18:00:27 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:28 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据号变更参数为空', 'data': None}
+2021-08-20 18:00:28 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:28 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据号变更参数为空', 'data': None}
+2021-08-20 18:00:28 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:28 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 给付责任变更参数为空', 'data': None}
+2021-08-20 18:00:28 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:28 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 给付责任变更参数为空', 'data': None}
+2021-08-20 18:00:28 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:28 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 给付责任变更参数为空', 'data': None}
+2021-08-20 18:00:28 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:29 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 费用项目代码变更参数为空', 'data': None}
+2021-08-20 18:00:29 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:29 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 费用项目代码变更参数为空', 'data': None}
+2021-08-20 18:00:29 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:29 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 费用项目代码变更参数为空', 'data': None}
+2021-08-20 18:00:29 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:29 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 主要诊断变更参数为空', 'data': None}
+2021-08-20 18:00:29 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:29 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 主要诊断变更参数为空', 'data': None}
+2021-08-20 18:00:29 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:29 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 主要诊断变更参数为空', 'data': None}
+2021-08-20 18:00:29 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:30 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 客户交单日变更参数为空', 'data': None}
+2021-08-20 18:00:30 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:30 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 客户交单日变更参数为空', 'data': None}
+2021-08-20 18:00:30 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:30 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 客户交单日变更参数为空', 'data': None}
+2021-08-20 18:00:30 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:30 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'com.ciics.cscloud.tpa.service.component.claimCase.exception.CaseChangeException: 当前变更类型不支持该变更对象', 'data': None}
+2021-08-20 18:00:30 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:30 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'com.ciics.cscloud.tpa.service.component.claimCase.exception.CaseChangeException: 当前变更类型不支持该变更对象', 'data': None}
+2021-08-20 18:00:30 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:31 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'com.ciics.cscloud.tpa.service.component.claimCase.exception.CaseChangeException: 当前变更类型不支持该变更对象', 'data': None}
+2021-08-20 18:00:31 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:31 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 证件起止期变更参数为空', 'data': None}
+2021-08-20 18:00:31 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:31 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 证件起止期变更参数为空', 'data': None}
+2021-08-20 18:00:31 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:31 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 证件起止期变更参数为空', 'data': None}
+2021-08-20 18:00:31 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:31 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据日期变更参数为空', 'data': None}
+2021-08-20 18:00:31 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:32 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据日期变更参数为空', 'data': None}
+2021-08-20 18:00:32 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:32 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据日期变更参数为空', 'data': None}
+2021-08-20 18:00:32 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:32 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 领款银行账户变更参数为空', 'data': None}
+2021-08-20 18:00:32 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:32 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 领款银行账户变更参数为空', 'data': None}
+2021-08-20 18:00:32 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:32 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 领款银行账户变更参数为空', 'data': None}
+2021-08-20 18:00:32 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:32 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 住址变更参数为空', 'data': None}
+2021-08-20 18:00:32 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:33 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 住址变更参数为空', 'data': None}
+2021-08-20 18:00:33 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:33 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 住址变更参数为空', 'data': None}
+2021-08-20 18:00:33 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:33 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据类型变更参数为空', 'data': None}
+2021-08-20 18:00:33 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:33 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据类型变更参数为空', 'data': None}
+2021-08-20 18:00:33 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:34 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据类型变更参数为空', 'data': None}
+2021-08-20 18:00:34 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:34 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据号变更参数为空', 'data': None}
+2021-08-20 18:00:34 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:34 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据号变更参数为空', 'data': None}
+2021-08-20 18:00:34 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+
+2021-08-20 18:00:34 Fri - INFO - anjianbiangeng.py - test - line: 18 - {'code': 1, 'msg': 'java.lang.IllegalArgumentException: 票据号变更参数为空', 'data': None}
+2021-08-20 18:00:34 Fri - INFO - anjianbiangeng.py - test - line: 19 - 
+

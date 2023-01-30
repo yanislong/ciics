@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>{{result[0]}}</title>
+<meta name="referrer" content="no-referrer"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="icon" href="{{url_for('static',filename='image/favicon.ico')}}" type="image/x-icon"/>
+<link rel="stylesheet" href="{{url_for('static', filename='css/global.css')}}">
+<style>
+body {background-image: url("{{url_for('static', filename='image/back.jpg')}}"); background-repeat: no-repeat; background-size: 100% 100%;}
+body {filter: alpha(opacity=80); opacity: 0.8;}
+a {display: block;}
+</style>
+</head>
+<body>
+<h1>{{result[0]}}测试平台</h1>
+<a href="interfaceList">待请求接口列表</a>
+<a href="interfaceRespondList">接口请求结果</a>
+<a href="integrate">接口集成测试</a>
+<a href="qianyunGET">第三方接口监控</a>
+<a href="collvalue">前后端对接文档</a>
+<a href="rule">字段规则</a>
+<a href="test">&nbsp</a>
+</body>
+</html>

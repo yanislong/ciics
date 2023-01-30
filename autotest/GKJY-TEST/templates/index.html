@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <meta name="description" content="">
+  <link rel="icon" href="{{url_for('static',filename='image/favicon.ico')}}" type="image/x-icon"/>
+  <title>{{result[0][0]}}</title>
+  <link href="https://fonts.loli.net/css?family=Quicksand:400" rel="stylesheet">
+  <link charset="utf-8" href="{{url_for('static',filename='css/mikutap.css')}}" rel="stylesheet">
+<script>
+</script>
+</head>
+<body>
+<div style="float:right;margin-right:40px;">
+<p><a href="{{result[0][1]}}" target="view_window">bug平台</a></p>
+</div>
+  <div id="scene_top">
+    <h1>{{result[0][0]}}内部测试平台</h1>
+    <div class="ok">
+      <p>UI自动化  <a href="uiauto">!进入!</a></p>
+      <p>接口自动化  <a href="interfaceList">!进入!</a></p>
+      <p>脚本自动化  <a href="shelllist">!进入!</a></p>
+    </div>
+    <div class="ok">
+      <p class="attention">※  {{result[0][3]}} ※ </p>
+    </div>
+  </div>
+  <div align="center">
+  <audio id="vdo" {{result[0][2]}} loop>
+  <!-- 如果浏览器不支持，则会呈现下面内容 -->
+  <p>你的浏览器不支持HTML5音频，你可以<a href="{{url_for('static',filename='vidio/tuihou.mp3')}}">下载</a>这个音频文件。</p>
+  <source src="{{url_for('static',filename='vidio/tuihou.mp3')}}" type="audio/ogg">
+  </audio>
+<!--<iframe src="{{url_for('static',filename='vidio/tuihou.mp3')}}" allow="autoplay"/>-->
+</div>
+</body>
+</html>

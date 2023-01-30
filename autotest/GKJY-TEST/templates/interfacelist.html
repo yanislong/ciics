@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>接口列表</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="icon" href="{{url_for('static',filename='image/favicon.ico')}}" type="image/x-icon"/>
+<link rel="stylesheet" href="{{url_for('static', filename='css/global.css')}}">
+<script src="{{url_for('static',filename='js/tanceng.js')}}"></script>
+<script src="{{url_for('static',filename='js/global.js')}}"></script>
+<style type="text/css">
+/*    table,th {table-layout: fixed; word-break: break-all; word-wrap: break-word; border:2px solid #ff8800; border-collapse: collapse; width: 100%}
+    td {table-layout: fixed; word-break: break-all; word-wrap: break-word; border:2px solid #ff8800; border-collapse: collapse; }*/
+    table, th{table-layout: fixed; border: 2px solid #369; border-collapse: collapse; width: 100%;}
+    td { white-space: nowrap; overflow: hidden; text-overflow:ellipsis; }
+</style>
+</head>
+<body>
+  <audio id="vdo" {{result[9]}} loop>
+  <!-- 如果浏览器不支持，则会呈现下面内容 -->
+  <p>你的浏览器不支持HTML5音频，你可以<a href="{{url_for('static',filename='vidio/tuihou.mp3')}}">下载</a>这个音频文件。</p>
+  <source src="{{url_for('static',filename='vidio/tuihou.mp3')}}" type="audio/ogg">
+  </audio>
+<h1>待请求接口列表</h1>
+<a href="/">index</a>
+ || <a href="interfaceRespondList">接口请求结果</a>
+ || <a href="integrate">接口集成测试</a>
+ || <a href="collvalue">前后端对接文档</a>
+ || <a href="rule">字段规则</a>
+ || <a href="help" target="view_window">测试助手</a>
+<hr />
+<form  enctype='multipart/form-data' action="/uploadfile" method="post" style="display:inline">
+&nbsp || &nbsp<input type="file" name="myf" />
+<button>上传接口用例(excel)</button>
+</form>
+<form  action="/downloadfile" method="get" style="display:inline">
+<button>模板下载</button>
+</form>
+<form action="/interfaceList" method="get" style="float:left">
+模块:<input list="namelist" value="" name="interface" autocomplete="off" />
+<datalist id="namelist">
+{% for i in result[3] %}
+<option>{{i[0]}}</option>
+{% endfor %}
+</datalist>
+开发者:<input list="namelist2" value="" name="author" autocomplete="off" />
+<datalist id="namelist2">
+{% for i in result[5] %}
+<option>{{i[0]}}</option>
+{% endfor %}
+</datalist>
+跳转页数：<input name="page" value="" />
+<button>GO</button>
+<p style="display:inline">total: {{result[1]}} | totalpage: {{result[2]}}</p>
+</form>
+<form method="get" action="/runtest" style="display:inline">
+<input type="hidden" name="execut" value="" />
+&nbsp&nbsp||&nbsp&nbsp <button>执行接口测试</button>
+</form>
+ || <input type="button" value="新增接口" onclick="Show();">
+<!--新增接口-->
+<div id="shade" class="c1 hide"></div>
+<div id="modal" class="c2 hide">
+<form action="/addInterface" method="post">
+<h2>新增</h2>
+<p>模块：<input list="modelist" name="imode" autocomplete="off" /></p>
+<datalist id="modelist">
+{% for i in result[6] %}
+<option>{{i}}</option>
+{% endfor %}
+</datalist>
+<p>接口描述：<textarea name="idesc" rows="1" cols="55"></textarea></p>
+<p>接口地址：<textarea name="iaddr" rows="1" cols="55"></textarea></p>
+<p>数据格式：<input list="headlist" value="" name="iheader" autocomplete="off" />
+<datalist id="headlist">
+<option>json</option>
+</datalist>
+</p>
+<p>请求参数：<textarea name="iparam" rows="4" cols="45" onmouseover="showparam()" onmouseout="hideparam()" ></textarea><span id="testparam">提供参数都按json格式输入</span></p>
+<p>请求方法:<input list="optionlist" value="" name="ioption" autocomplete="off" />
+<datalist id="optionlist">
+{% for i in result[7] %}
+<option>{{i}}</option>
+{% endfor %}
+</datalist>
+</p>
+<p>开发者：<input list="authorlist" name="iauthor" autocomplete="off"  /></p>
+<datalist id="authorlist">
+{% for i in result[8] %}
+<option>{{i}}</option>
+{% endfor %}
+</datalist>
+<p>预期结果：<input name="iresult" /></p>
+<p>测试账号密码：<textarea name="iuserpwd" rows="2" cols="45" onmouseover="showtip()" onmouseout="hidetip()" > {"username":"","passwd":""} </textarea><span id="testtip">提供调用该接口的账号和密码,按当前格式输入内容,确保正确的json格式</span></p>
+<div></div>
+<p><button>确定</button></p>
+</form>
+<p>
+<input type="button" value="取消" onclick="Hide();">
+</p>
+    </div>
+<table id="customers">
+<thead>
+<tr>
+<th class="interId">id </th><th class="interMode">模块</th><th class="interDesc">接口描述</th><th>接口地址</th><th class="interFormat">数据格式</th><th class="interParam">请求参数</th><th class="interOption">请求方法</th><th class="interAuthor">开发者</th><th class="interResult">预期结果</th><th class="interInputTime">录入时间</th><th class="interOperat">操作</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th class="interId">id </th><th class="interMode">模块</th><th class="interDesc">接口描述</th><th>接口地址</th><th class="interFormat">数据格式</th><th class="interParam">请求参数</th><th class="interOption">请求方法</th><th class="interAuthor">开发者</th><th class="interResult">预期结果</th><th class="interInputTime">录入时间</th><th class="interOperat">操作</th>
+</tr>
+</tfoot>
+<tbody>
+<form action="/delinterface" method="get">
+{% for i in result[0] %}
+<tr>
+<td class="interId">{{i[0]}}</td><td class="interMode">{{i[1]}}</td><th class="interDesc">{{i[8]}}</th><td title="{{i[2]}}">{{i[2]}}</td><td class="interFormat">{{i[3]}}</td><td><div title="{{i[4]}}" class="interParam">{{i[4]}}</div></td><td class="interOption">{{i[5]}}</td><td class="interAuthor">{{i[7]}}</td><th>{{i[9]}}</th><td class="interResult">{{i[6]}}</td><td  class="interInputTime"><button name="iid" value="{{i[0]}}">删除</button><button name='rid' value="{{i[0]}}">执行</button><input id="editinter" name="editinter2" value="{{i[0]}}" class="btn" onclick="testbut();Show2();" title="编辑" /></td>
+</tr>
+{% endfor %}
+</form>
+</div>
+<!--编辑接口-->
+<div id="shade2" class="c3 hide"></div>
+<div id="moda2" class="c4 hide">
+<h2>编辑</h2>
+<form action="/updateInterface" method="post">
+<p>模块：<input id="emode" name="imode" value="" /></p>
+<p>接口描述：<textarea id="edesc" name="idesc" rows="1" cols="55"></textarea></p>
+<p>接口地址：<textarea id="eaddr" name="iaddr" rows="1" cols="55"></textarea></p>
+<p>数据格式：<input id="eheader" value="" name="iheader" /></p>
+<p>请求参数：<textarea id="eparam" name="iparam" rows="4" cols="45" onmouseover="showparam2()" onmouseout="hideparam2()"></textarea><span id="testparam2">提供参数都按json格式输入</span></p>
+<p>请求方法:<input id="eoption" value="" placeholder="" name="ioption" /></p>
+<p>开发者：<input id="eauthor" value='' name="iauthor" /></p>
+<p>预期结果：<input id="eresult" name="iresult" value='' /></p>
+<p>测试账号密码：<textarea id="euserpwd" name="iuserpwd" rows="2" cols="45" onmouseover="showtip2()" onmouseout="hidetip2()"></textarea><span id="testtip2">提供调用该接口的账号和密码,按当前格式输入内容,确保正确的json格式</span></p>
+<input id="editinter" name="iid" value='' type="hidden" />
+<p><button>确定</button></p>
+<p><input type="button" value="取消" onclick="Hide2();"></p>
+</form>
+</div>
+</tbody>
+</table>
+</body>
+</html>

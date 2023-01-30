@@ -1,0 +1,9 @@
+#about_cover,#view,#view canvas,body,html{height:100%;width:100%}
+body,html{position:absolute;overflow:hidden;text-align:center;background:#8cc;color:#fff;font-family:Quicksand,"游ゴシック","Yu Gothic","游ゴシック体",YuGothic,"Yu Gothic UI","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","Meiryo UI","メイリオ",Meiryo,sans-serif;}
+#scene_top h1{font-size:2.8rem; margin-top:150px;margin-bottom:100px;}
+a:link,a:visited{
+ text-decoration:none;  /*超链接无下划线*/
+}
+a:hover{
+ text-decoration:underline;  /*鼠标放上去有下划线*/
+}

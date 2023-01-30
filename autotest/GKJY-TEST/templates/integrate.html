@@ -1,0 +1,28 @@
+<html>
+<head> <title>国科晋云</title>
+<meta name="referrer" content="no-referrer"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="icon" href="{{url_for('static',filename='image/favicon.ico')}}" type="image/x-icon"/>
+<link rel="stylesheet" href="{{url_for('static', filename='css/global.css')}}">
+<script src="{{url_for('static', filename='js/global.js')}}"></script>
+</head>
+<body>
+<h1>接口集成测试</h1>
+<a href="/">index</a>
+|| <a href="interfaceList">待请求接口列表</a>
+|| <a href="interfaceRespondList">接口请求结果</a>
+|| <a href="qianyunGET">第三方接口监控</a>
+|| <a href="collvalue">前后端对接文档</a>
+|| <a href="rule">字段规则</a>
+<hr />
+<div id="runmokuai">
+<span>用户注册:</span><input type="checkbox" name="iname" value="user/userRegist" />
+<span>用户登录:</span><input type="checkbox" name="iname" value="user/userLogin" />
+<span>忘记密码:</span><input type="checkbox" name="iname" value="user/findPasswd" />
+<span>角色管理:</span><input type="checkbox" name="iname" value="user/roleManag" />
+</div>
+<br />
+<br />
+<button id="bmokuai" onclick="vailForm()">执行</button>
+</body>
+</html>
