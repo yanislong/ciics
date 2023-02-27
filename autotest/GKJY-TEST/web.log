@@ -13,466 +13,1784 @@
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
-172.17.0.1 - - [13/Oct/2022 10:21:51] "GET /jianmei HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 10:32:52] "GET / HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 10:32:52] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 11:01:15] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 11:24:24] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 11:24:26] "GET /uiauto HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:24:29] "[35m[1mPOST /uiauto_redirect_w HTTP/1.1[0m" 500 -
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
-    return self.wsgi_app(environ, start_response)
-  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
-    response = self.handle_exception(e)
-  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/usr/local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/usr/local/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/root/dockerdir/zzqf/autotest/GKJY-TEST/hw.py", line 525, in uiauto_redirect
-    sk.send(bytes(inp,'utf8'))
-BrokenPipeError: [Errno 32] Broken pipe
-172.17.0.1 - - [13/Oct/2022 11:24:29] "GET /uiauto_redirect_w?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:24:29] "GET /uiauto_redirect_w?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:24:29] "GET /uiauto_redirect_w?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:24:29] "GET /uiauto_redirect_w?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:24:29] "GET /uiauto_redirect_w?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:24:34] "GET /uiauto_www HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:25:34] "GET /rule HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:25:34] "GET /static/css/global.css HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:25:39] "GET / HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:25:39] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 11:25:41] "GET /interfaceList HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:25:41] "GET /static/js/global.js HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:25:41] "GET /static/js/tanceng.js HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:25:41] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 11:25:43] "GET /interfaceRespondList HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:25:43] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 11:25:45] "GET /interfaceList HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:25:45] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 11:25:47] "GET /integrate HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:25:48] "GET / HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:25:48] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 11:25:50] "GET /shelllist HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:36:08] "GET /shelllog HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:36:08] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 11:36:32] "GET /shelllog?myid=&interface=&page=&result=Faile HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:36:32] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 11:36:34] "GET /shelllog?myid=&interface=&page=&result=Error HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:36:34] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 11:36:36] "GET /shelllog?myid=&interface=&page=&result=Success HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 11:36:36] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 11:49:28] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 14:12:39] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 14:12:49] "GET /shelllog?myid=&interface=&page=2&result= HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 14:12:49] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 14:23:40] "GET /shelllog?myid=&interface=&page=4&result= HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 14:23:41] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 14:23:56] "GET /shelllog?myid=14234&interface=&page=&result= HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 14:23:56] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 14:24:10] "GET /rule HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 14:24:19] "GET /interfaceList HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 14:24:19] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [13/Oct/2022 14:24:21] "GET / HTTP/1.1" 200 -
-172.17.0.1 - - [13/Oct/2022 14:24:21] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [16/Oct/2022 10:50:56] "GET / HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:50:57] "GET /static/css/mikutap.css HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:50:57] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [16/Oct/2022 10:50:57] "GET /static/image/favicon.ico HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:51:01] "GET /uiauto HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:52:39] "GET /uiauto_www HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:52:40] "GET /rule HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:52:40] "GET /static/css/global.css HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:52:42] "GET / HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:52:42] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [16/Oct/2022 10:52:45] "GET /interfaceList HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:52:45] "GET /static/js/tanceng.js HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:52:45] "GET /static/js/global.js HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:52:45] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [16/Oct/2022 10:52:46] "GET /interfaceRespondList HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:52:46] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [16/Oct/2022 10:52:55] "GET /integrate HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:52:57] "GET /collvalue HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:52:57] "GET /static/js/test.js HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:52:59] "GET / HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:52:59] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [16/Oct/2022 10:53:01] "GET /shelllist HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:53:13] "GET / HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:53:13] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [16/Oct/2022 10:53:17] "GET /interfaceList HTTP/1.1" 200 -
-172.17.0.1 - - [16/Oct/2022 10:53:17] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-192.168.97.159 - - [17/Oct/2022 09:48:48] "GET / HTTP/1.1" 200 -
-192.168.97.159 - - [17/Oct/2022 09:48:48] "GET /static/css/mikutap.css HTTP/1.1" 200 -
-192.168.97.159 - - [17/Oct/2022 09:48:48] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-192.168.97.159 - - [17/Oct/2022 09:48:48] "GET /static/image/favicon.ico HTTP/1.1" 200 -
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
-tpa
-http://10.0.20.91:8089/casjc.log?cache=0
-无法链接UI自动化服务器('192.168.97.52', 8001)
+172.17.0.1 - - [13/Feb/2023 10:45:21] "GET /uiauto HTTP/1.1" 200 -
+172.17.0.1 - - [13/Feb/2023 10:45:22] "GET /uiauto_www HTTP/1.1" 200 -
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
 tpa
 ((660, 'tpa', '2022-04-07 20:35:27', '2022-04-07 20:36:22', '{"tpa_我的数据审核 3622": ["zhumh@ciics", " 分案号: GCO210311213P"]}', '2022/04/07 20:36:22', 'SIT'),)
-{'用户账户': '必填，首字符为字母，支持字母、数字，区分大小写，6-32个字符，注册用户名称不允许使用root、admin、administrator等', '用户密码': '必填，8-20个字符,包含大/小写字母、数字、特殊字符', '申请资源-用户单位': '最长不超过60个字符，不支持特殊字符', '申请资源-项目名称': '最长不超过200个字符', '角色管理-角色名称': '纯文本，字符限制不超过30个', '组织机构-企业/机构名称': '必填，纯文本，不超过60个字', '组织机构-法人': '选填，纯文本，不超过30个字', '组织机构-联系人': '选填，纯文本，不超过30个字', '用户管理-姓名': '必填，手动录入，最长不超过60位字符', '企业管理-企业单位名称': '必填，纯文本，不超过60个字', '企业管理-法人': '选填，纯文本，不超过30个字', '企业管理-地区': '必选，三级地区', '企业管理-邮箱': '选填，需校验邮箱填写正确性', '企业管理-联系人': '选填，纯文本，不超过30个字', '邮寄地址-收件人': '必填，不限制', '邮寄地址-联系电话': '必填，手机或座机号码', '邮寄地址-地区': '必选，选择省份/地区、城市、区县', '邮寄地址-详细地址': '必填，不限制', '个人中心-联系地址': '限制200个字符', '个人中心-研究方向': '限制200个字符', '个人中心-昵称': '限制60个字符', '信息中心-发送站内信标题': '限制100个字符', '工单-新增问题分类-问题名称': '限制255个字符', '信息-发送站内信title': '限制100个字符', '信息-发送站内信内容': '限制500个字符', '发票抬头管理纳税人识别号': '限制50个字符', '发票抬头管理单位地址': '限制128个字符', '发票抬头管理银行账号/银行账号（脱敏）': '限制60个字符', '发票抬头管理开户银行': '限制60个字符', '注册手机': '5分钟', '邮箱有效期': '10分钟,两次间隔发送验证码60秒', '忘记密码手机': '手机10分钟', '邮箱修改链接有效期': '24小时', '更换密保手机有效期': '五分钟，两次间隔发送验证码60秒', '更换密保邮箱手机': '验证码有效期10分钟，两次间隔发送验证码60秒', '邮箱验证码有效期': '10分钟，两次间隔发送验证码60秒'}
-()
-()
-{'用户账户': '必填，首字符为字母，支持字母、数字，区分大小写，6-32个字符，注册用户名称不允许使用root、admin、administrator等', '用户密码': '必填，8-20个字符,包含大/小写字母、数字、特殊字符', '申请资源-用户单位': '最长不超过60个字符，不支持特殊字符', '申请资源-项目名称': '最长不超过200个字符', '角色管理-角色名称': '纯文本，字符限制不超过30个', '组织机构-企业/机构名称': '必填，纯文本，不超过60个字', '组织机构-法人': '选填，纯文本，不超过30个字', '组织机构-联系人': '选填，纯文本，不超过30个字', '用户管理-姓名': '必填，手动录入，最长不超过60位字符', '企业管理-企业单位名称': '必填，纯文本，不超过60个字', '企业管理-法人': '选填，纯文本，不超过30个字', '企业管理-地区': '必选，三级地区', '企业管理-邮箱': '选填，需校验邮箱填写正确性', '企业管理-联系人': '选填，纯文本，不超过30个字', '邮寄地址-收件人': '必填，不限制', '邮寄地址-联系电话': '必填，手机或座机号码', '邮寄地址-地区': '必选，选择省份/地区、城市、区县', '邮寄地址-详细地址': '必填，不限制', '个人中心-联系地址': '限制200个字符', '个人中心-研究方向': '限制200个字符', '个人中心-昵称': '限制60个字符', '信息中心-发送站内信标题': '限制100个字符', '工单-新增问题分类-问题名称': '限制255个字符', '信息-发送站内信title': '限制100个字符', '信息-发送站内信内容': '限制500个字符', '发票抬头管理纳税人识别号': '限制50个字符', '发票抬头管理单位地址': '限制128个字符', '发票抬头管理银行账号/银行账号（脱敏）': '限制60个字符', '发票抬头管理开户银行': '限制60个字符', '注册手机': '5分钟', '邮箱有效期': '10分钟,两次间隔发送验证码60秒', '忘记密码手机': '手机10分钟', '邮箱修改链接有效期': '24小时', '更换密保手机有效期': '五分钟，两次间隔发送验证码60秒', '更换密保邮箱手机': '验证码有效期10分钟，两次间隔发送验证码60秒', '邮箱验证码有效期': '10分钟，两次间隔发送验证码60秒'}
-()
-tpa
-((660, 'tpa', '2022-04-07 20:35:27', '2022-04-07 20:36:22', '{"tpa_我的数据审核 3622": ["zhumh@ciics", " 分案号: GCO210311213P"]}', '2022/04/07 20:36:22', 'SIT'),)
-{'用户账户': '必填，首字符为字母，支持字母、数字，区分大小写，6-32个字符，注册用户名称不允许使用root、admin、administrator等', '用户密码': '必填，8-20个字符,包含大/小写字母、数字、特殊字符', '申请资源-用户单位': '最长不超过60个字符，不支持特殊字符', '申请资源-项目名称': '最长不超过200个字符', '角色管理-角色名称': '纯文本，字符限制不超过30个', '组织机构-企业/机构名称': '必填，纯文本，不超过60个字', '组织机构-法人': '选填，纯文本，不超过30个字', '组织机构-联系人': '选填，纯文本，不超过30个字', '用户管理-姓名': '必填，手动录入，最长不超过60位字符', '企业管理-企业单位名称': '必填，纯文本，不超过60个字', '企业管理-法人': '选填，纯文本，不超过30个字', '企业管理-地区': '必选，三级地区', '企业管理-邮箱': '选填，需校验邮箱填写正确性', '企业管理-联系人': '选填，纯文本，不超过30个字', '邮寄地址-收件人': '必填，不限制', '邮寄地址-联系电话': '必填，手机或座机号码', '邮寄地址-地区': '必选，选择省份/地区、城市、区县', '邮寄地址-详细地址': '必填，不限制', '个人中心-联系地址': '限制200个字符', '个人中心-研究方向': '限制200个字符', '个人中心-昵称': '限制60个字符', '信息中心-发送站内信标题': '限制100个字符', '工单-新增问题分类-问题名称': '限制255个字符', '信息-发送站内信title': '限制100个字符', '信息-发送站内信内容': '限制500个字符', '发票抬头管理纳税人识别号': '限制50个字符', '发票抬头管理单位地址': '限制128个字符', '发票抬头管理银行账号/银行账号（脱敏）': '限制60个字符', '发票抬头管理开户银行': '限制60个字符', '注册手机': '5分钟', '邮箱有效期': '10分钟,两次间隔发送验证码60秒', '忘记密码手机': '手机10分钟', '邮箱修改链接有效期': '24小时', '更换密保手机有效期': '五分钟，两次间隔发送验证码60秒', '更换密保邮箱手机': '验证码有效期10分钟，两次间隔发送验证码60秒', '邮箱验证码有效期': '10分钟，两次间隔发送验证码60秒'}
-()
-()
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/mosRsa_split.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/mosRsa_split.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/mosRsa_split.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/mosRsa_split.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/mosRsa_split.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/mosRsa_split.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/mosRsa_split.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/mosRsa_split.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/mosRsa_split.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/mosRsa_split.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/zzqf/mos/test3.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/hw.py', reloading
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
-172.17.0.1 - - [27/Oct/2022 16:25:53] "GET / HTTP/1.1" 200 -
-172.17.0.1 - - [27/Oct/2022 16:25:53] "GET /static/css/mikutap.css HTTP/1.1" 200 -
-172.17.0.1 - - [27/Oct/2022 16:25:54] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [27/Oct/2022 16:25:54] "GET /static/image/favicon.ico HTTP/1.1" 200 -
-172.17.0.1 - - [27/Oct/2022 16:25:59] "GET /interfaceList HTTP/1.1" 200 -
-172.17.0.1 - - [27/Oct/2022 16:25:59] "GET /static/css/global.css HTTP/1.1" 200 -
-172.17.0.1 - - [27/Oct/2022 16:25:59] "GET /static/js/tanceng.js HTTP/1.1" 200 -
-172.17.0.1 - - [27/Oct/2022 16:25:59] "GET /static/js/global.js HTTP/1.1" 200 -
-172.17.0.1 - - [27/Oct/2022 16:25:59] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [27/Oct/2022 16:26:01] "GET /interfaceRespondList HTTP/1.1" 200 -
-172.17.0.1 - - [27/Oct/2022 16:26:01] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [27/Oct/2022 16:26:21] "GET /interfaceRespondList HTTP/1.1" 200 -
-172.17.0.1 - - [27/Oct/2022 16:26:36] "GET /interfaceRespondList?myid=&interface=&page=1&result= HTTP/1.1" 200 -
-172.17.0.1 - - [27/Oct/2022 16:26:36] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
- * Detected change in '/root/dockerdir/zzqf/autotest/GKJY-TEST/hw.py', reloading
-()
-None
-None
-
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
  * Restarting with stat
 /usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
   RequestsDependencyWarning)
  * Debugger is active!
  * Debugger PIN: 379-201-622
-172.17.0.1 - - [27/Oct/2022 16:37:56] "GET /interfaceRespondList?myid=1&interface=&page=&result= HTTP/1.1" 200 -
-172.17.0.1 - - [27/Oct/2022 16:37:57] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [27/Oct/2022 16:38:27] "GET /interfaceRespondList?myid=&interface=&page=&result= HTTP/1.1" 200 -
-172.17.0.1 - - [27/Oct/2022 16:38:27] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [27/Oct/2022 16:59:00] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-192.168.97.159 - - [02/Nov/2022 10:53:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-192.168.97.159 - - [03/Nov/2022 10:38:42] "GET / HTTP/1.1" 200 -
-192.168.97.159 - - [03/Nov/2022 10:38:42] "GET /static/css/mikutap.css HTTP/1.1" 200 -
-192.168.97.159 - - [03/Nov/2022 10:38:42] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-192.168.97.159 - - [03/Nov/2022 10:38:42] "GET /static/image/favicon.ico HTTP/1.1" 200 -
-192.168.97.159 - - [03/Nov/2022 10:58:27] "GET / HTTP/1.1" 200 -
-192.168.97.159 - - [03/Nov/2022 10:58:27] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [04/Nov/2022 09:32:39] "GET / HTTP/1.1" 200 -
-172.17.0.1 - - [04/Nov/2022 09:32:39] "GET /static/css/mikutap.css HTTP/1.1" 200 -
-172.17.0.1 - - [04/Nov/2022 09:32:39] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [04/Nov/2022 09:32:39] "GET /static/image/favicon.ico HTTP/1.1" 200 -
-172.17.0.1 - - [04/Nov/2022 09:32:42] "GET /uiauto HTTP/1.1" 200 -
-172.17.0.1 - - [04/Nov/2022 09:32:43] "GET /help HTTP/1.1" 200 -
-172.17.0.1 - - [04/Nov/2022 09:32:43] "GET /static/css/global.css HTTP/1.1" 200 -
-172.17.0.1 - - [04/Nov/2022 09:32:43] "GET /static/js/global.js HTTP/1.1" 200 -
-172.17.0.1 - - [04/Nov/2022 09:32:43] "GET /static/js/tanceng.js HTTP/1.1" 200 -
-192.168.99.173 - - [23/Nov/2022 16:49:11] "GET /downloadfile/ HTTP/1.1" 200 -
-192.168.97.159 - - [06/Dec/2022 09:17:34] "GET / HTTP/1.1" 200 -
-192.168.97.159 - - [06/Dec/2022 09:17:36] "GET /static/css/mikutap.css HTTP/1.1" 200 -
-192.168.97.159 - - [06/Dec/2022 09:17:37] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-192.168.97.159 - - [06/Dec/2022 09:17:37] "GET /static/image/favicon.ico HTTP/1.1" 200 -
-192.168.97.159 - - [06/Dec/2022 09:22:32] "GET /uiauto HTTP/1.1" 200 -
-192.168.97.159 - - [19/Dec/2022 10:09:28] "GET / HTTP/1.1" 200 -
-172.17.0.1 - - [29/Dec/2022 10:21:46] "GET / HTTP/1.1" 200 -
-172.17.0.1 - - [29/Dec/2022 10:21:49] "GET /static/css/mikutap.css HTTP/1.1" 200 -
-172.17.0.1 - - [29/Dec/2022 10:21:50] "GET /static/image/favicon.ico HTTP/1.1" 200 -
-172.17.0.1 - - [29/Dec/2022 10:21:53] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
-172.17.0.1 - - [29/Dec/2022 10:21:57] "GET /uiauto HTTP/1.1" 200 -
-172.17.0.1 - - [29/Dec/2022 10:22:11] "GET /uiauto_www HTTP/1.1" 200 -
-192.168.97.102 - - [05/Jan/2023 10:13:08] "GET /downloadfile/ HTTP/1.1" 200 -
-192.168.97.102 - - [05/Jan/2023 10:13:21] "GET /downloadfile/ HTTP/1.1" 200 -
-192.168.97.102 - - [05/Jan/2023 10:13:36] "GET /downloadfile/ HTTP/1.1" 200 -
-192.168.97.159 - - [17/Jan/2023 11:07:20] "GET / HTTP/1.1" 200 -
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_login.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_config.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_config.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+172.17.0.1 - - [13/Feb/2023 16:28:53] "GET /uiauto HTTP/1.1" 200 -
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_config.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_config.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_config.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_config.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_config.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 379-201-622
