@@ -17,7 +17,9 @@ class tpa_process():
         self.header['Authorization'] = token
         self.token = token
         self.today = time.strftime("%Y-%m-%d", time.localtime())
-        self.today_1 = (datetime.date.today() + datetime.timedelta(days = -2)).strftime("%Y-%m-%d")
+        self.today_1 = (datetime.date.today() + datetime.timedelta(days = -4)).strftime("%Y-%m-%d")
+        self.applyStartTime = "2022-12-31"
+        self.applyEndTime = "2199-12-31"
 
         #查询保险公司ID
         data = {"page":{"current":1,"size":20},"nodeType":["02"]}
@@ -55,9 +57,9 @@ class tpa_process():
         for y in ed.json()['data']['gen:responsibility_type']:
             if tpa_config.takeOrderParam[4].strip() == y['dictName']:
                 self.dutyTypeId = y['dictCode']
+            else:
+                self.dutyTypeId = ""
 
-
-    #def takeOrder(self, insuranceCompany, company, policyNo, expenseType, dutyType, number):
     def takeOrder(self, *top):
 
         insuranceCompany = top[0][0]
@@ -98,7 +100,7 @@ class tpa_process():
         #请求收单接口,生成单子
         data = {"batchNo":"","insuranceCompanyId": self.companyId,"insuranceApplicationId":self.applicationId,"policyNo": tpa_config.takeOrderParam[2],"claimType": self.expenseTypeId,"responsibilityType": self.dutyTypeId,"caseAmount": tpa_config.takeOrderParam[5],"receivePolicyTime": self.today,"ordinationArea":"","healthAgency":"","exigency":"0","caseSource":"PC","pageCount":0,"amountSummary":0,"expressageNo":"","fileName":"","startTime":"","endTime":"","videoFileStatus":"1","imageVoList":[]}
         r = requests.post(tpa_config.url + "/tpaserver/tclaimbatch/saveBatch", headers = self.header, data=json.dumps(data))
-        tpa_log.logger.info(json.dumps(r.json(), ensure_ascii=False))
+        #tpa_log.logger.info(json.dumps(r.json(), ensure_ascii=False))
         batchId = r.json()['data']['id']
         tpa_log.logger.info(batchId)
         return batchId
@@ -107,7 +109,6 @@ class tpa_process():
 
         #查询收单列表中未提交的单子
         searchParam = {"page":{"current":1,"size":20},"endTime": self.today + " 00:00:00","startTime": self.today + " 00:00:00","sortField": None,"sort": None,"insuranceCompanyId": self.companyId,"insuranceApplicationId": self.applicationId,"policyNo": tpa_config.takeOrderParam[2],"claimType": self.expenseTypeId,"status":"1"}
-        pprint(searchParam)
         s = requests.post(tpa_config.url + "/tpaserver/tclaimbatch/pageBatch", headers = self.header, data=json.dumps(searchParam))
         tpa_log.logger.info(json.dumps(s.json(), ensure_ascii=False))
         listdata = s.json()['data']['records']
@@ -176,31 +177,121 @@ class tpa_process():
             myChannel = r1.json()['data']['channel']
             myCaseSource = r1.json()['data']['caseSource']
             myResponsibilityType = r1.json()['data']['responsibilityType']
-            myInsuranceCompanyId = r1.json()['data']['insuranceCompanyId']
-            myInsuranceApplicationId = r1.json()['data']['insuranceApplicationId']
             mybirthdate = tpa_config.idCode[6:10] + "-" + tpa_config.idCode[10:12] + "-" + tpa_config.idCode[12:14]
         else:
             tpa_log.logger.info("查看案件异常,批次号: " + str(myBatchNo))
             return None
-        #r1 = requests.get(tpa_config.url + "/tpaserver/tclaimcaseinsured/findInsured?caseId=1627566896519872513" + myBatchNo, headers = self.header)
+
+        #根据入参获取职业,国籍,关系等数据字典
+        tt = {"dictCodeList":["gen:id_type","gen:relationship_type","gen:accident_type","gen:jobs_type","gen:payee_insurd_relationship","gen:health_status","gen:nation","gen:relationship","gen:pay_method","gen:public_method","gen:bank_code_to_online","gen:bank_code","gen:bank_code_to_private","gen:sex","gen:money_source","gen:payee_beneficiary_relationship"],"channel": myChannel}
+        ed = requests.post(tpa_config.url + "/tpabaseserver/sysdict/findListByCode", headers = self.header, data=json.dumps(tt))
+        myjob = ed.json()['data']['gen:jobs_type'][0]['dictCode']
+        myaccident_type = ed.json()['data']['gen:accident_type'][0]['dictCode']
+        #根据渠道判断匹配的证件类型字典
+        if myChannel == "RB":
+            for i in ed.json()['data']['gen:id_type']:
+                if i['dictName'] == "居民身份证":
+                    myid_type = i['dictCode']
+                    break
+        elif myChannel == "XH":
+            for i in ed.json()['data']['gen:id_type']:
+                if i['dictName'] == "身份证":
+                    myid_type = i['dictCode']
+                    break
+        else:
+            myid_type = "00"
+        #与主被保人关系
+        for i in ed.json()['data']['gen:relationship_type']:
+            if i['dictName'] == "本人":
+                myrelation = i['dictCode']
+                break
+            else:
+                myrelation = "0"
+        #领款人与受益人关系
+        if myChannel == "RB":
+            for i in ed.json()['data']['gen:payee_beneficiary_relationship']:
+                if i['dictName'] == "本人":
+                    mybenefrelation = i['dictCode']
+                    break
+                else:
+                    mybenefrelation = "0"
+        else:
+            mybenefrelation = "00"
+        for i in ed.json()['data']['gen:nation']:
+            if i['dictName'] == "中国":
+                myState = i['dictCode']
+                break
+            else:
+                myState = "156"
+        for i in ed.json()['data']['gen:accident_type']:
+            if i['dictName'] == "疾病":
+                myaccident = i['dictCode']
+                break
+            else:
+                myaccident = "200"
+
+        #获取医院字典数据
+        data = {}
+        data["channel"] = myChannel
+        data["hospitalNameOrCode"] = ""
+        r = requests.post(tpa_config.url + "/tpabaseserver/syshospital/list", headers=self.header, data=json.dumps(data))
+        hospitalList = r.json()['data']
+        hospital = random.choice(hospitalList)
+        hospitalName = hospital['hospitalName']
+        hospitalCode = hospital['hospitalCode']
+        hospitalGrade = hospital['hospitalGrade']
+
+        #获取疾病字典数据
+        r = requests.get(tpa_config.url + "/icdcode/icddatathird/getIcdByIcdNameAndStdCode?icdName=0&stdCode=" + myChannel, headers=self.header)
+        diseaseList = r.json()['data']
+        disease = random.choice(diseaseList)
+        diseaseName = disease['diseaseCnName']
+        diseaseCode = disease['diseaseCode']
+
+        #获取费用类型字典数据
+        data = {}
+        data["channel"] = myChannel
+        if myChannel == "RB":
+            data["dictCodeList"] = ["gen:cost_type"]
+            r = requests.post(tpa_config.url + "/tpabaseserver/sysdict/findListByCode", headers=self.header, data=json.dumps(data))
+            costList = r.json()['data']['gen:cost_type']
+        elif myChannel == "XH":
+            data["dictCodeList"] = ["gen:bill_type_A"]
+            r = requests.post(tpa_config.url + "/tpabaseserver/sysdict/findListByCode", headers=self.header, data=json.dumps(data))
+            costList = r.json()['data']['gen:bill_type_A']
+        #print(r.json())
+        cost = random.choice(costList)
+        costName = cost['dictName']
+        costCode = cost['dictCode']
 
         #根据身份证号查询被保人信息
-        data = {"insured":{},"insuranceApplicationId": myInsuranceApplicationId,"insuredReceiver":{},"applyPerson":{},"claimCase":{},"policyNo": myPolicyNo, "insuranceCompanyId": myInsuranceCompanyId, "trustee":{},"principalInsured":{},"isItTrueBankAccount": None, "showAddress": ""}
-        data["insured"] = {"id":"","customerNo":"","insuredName":"","idType":"0","idCard": idCard,"idCardAddress":"","mobile":"","insuredRelationship":"","age":0,"version":0,"isLongTerm":0,"occupationType":"","startTime":None,"endTime":None,"status":0,"createUser":"","createTime":"","updateUser":"","updateTime":"","delFlag":0,"province":"","city":"","area":"","address":"","accountBalance":"0.00","dutyPlanType":"","insuredState":"CHN","birthDate": mybirthdate,"sex":0}
+        data = {}
+        data["insuranceApplicationId"] = self.applicationId
+        data["policyNo"] = tpa_config.takeOrderParam[2]
+        data["insuranceCompanyId"] = self.companyId
+        data["insured"] = {"id":"","customerNo":"","insuredName":"","idType": myid_type,"idCard": tpa_config.idCode,"idCardAddress":"","mobile":"","insuredRelationship":"","age":0,"version":0,"isLongTerm":0,"occupationType":"","startTime":None,"endTime":None,"status":0,"createUser":"","createTime":"","updateUser":"","updateTime":"","delFlag":0,"province":"","city":"","area":"","address":"","accountBalance":"0.00","dutyPlanType":"","insuredState": myState,"birthDate": mybirthdate,"sex":0}
         data["insuredReceiver"] = {"id":"","bankName":"","bankAccount":"","insuredRelationship":"00","professionType":"","version":0,"createUser":"","createTime":None,"updateUser":"","updateTime":"","delFlag":0,"bankType":1}
-        data["insuredAccidentInfo"] = {"id":"","accidentDate":None,"accidentType":"200","healthStatus":"","province":"","city":"","area":"","address":"","accidentResult":"","accidentCourse":"","accidentReason":"","version":0,"createUser":"","createTime":None,"updateUser":"","updateTime":"","delFlag":0}
-        data["trustee"] ={"trusteeFlag":0,"trusteeType":"","trusteeRelation":"","insuredRelationship":"","trusteeName":"","idType":"","idCard":"","mobile":"","startTime":"","endTime":"","emailAddress":"","province":"","city":"","area":"","email":"","address":"","idCardAddress":"","applyState":"CHN","birthDate":"","trusteeState":"","sex": None}
-        data["applyPerson"] = {"insuredRelationship":"","applyName":"","idType":"","idCard":"","mobile":"","applyStartTime":"","applyEndTime":"","emailAddress":"","province":"","city":"","area":"","email":"","address":"","idCardAddress":"","applyState":"CHN","birthdate":"","sex": None}
-        data["claimCase"] = {"id": myId,"batchId": myBatchId,"batchNo": myBatchNo,"caseNo": myCaseNo,"applyNo":"","socialSecurityProcessNo":"","ticketNumber":0,"amountSummary":0,"expressageNo":"","startTime":"1970-01-01 00:00:00","endTime":"1970-01-01 00:00:00","videoFileStatus":1,"caseStatus": "02","caseSecondStatus":"","backReason":"","specialSign":"","physicalSign":0,"version":0,"createUser":"lihailong","createTime": myCreateTime,"updateUser":"","updateTime":"1970-01-01 00:00:00","delFlag":0,"responsibilityType": myResponsibilityType,"qualityCheckType":"A","firstTrialConclusion":"","reviewConclusion":"","oneQualityCheckConclusion":"","twoQualityCheckConclusion":"","threeQualityCheckConclusion":"","videoFileNum":0,"caseEndDate":"1970-01-01 08:00:00","loanedDate":"1970-01-01 08:00:00","frozenSerial":"","giveName":"","giveNameCode":"","channel": myChannel,"reviewTime":"1970-01-01 00:00:00","qualityCheckBatchNo":"","synCaseStatus":"0","applicationAmount":0}
-        data["principalInsured"] = {"area":"","batchId":"","batchNo":"","belongToGroup":"","birthDate":"","caseId":"","caseNo":"","city":"","createTime":"","createUser":"","customerNo":"","delFlag":0,"dutyPlanType":"","empOnDuty":"","empOnDutyName":"","endTime":"","id":"","idCard":"","idCardAddress":"","idType":"","insuredId":"","insuredName":"","isLongTerm":0,"isSameAddress":0,"mobile":"","occupationType":"","province":"","repeatMsg":"","showAddress":"","socialAddress":"","startTime":"","updateTime":"","updateUser":"","version":0,"principalInsuredState":"CHN","sex": None}
+        data["trustee"] ={"trusteeFlag":0,"trusteeType":"","trusteeRelation":"","insuredRelationship":"","trusteeName":"","idType":"","idCard":"","mobile":"","startTime":"","endTime":"","emailAddress":"","province":"","city":"","area":"","email":"","address":"","idCardAddress":"","applyState": "CHN","birthDate":"","trusteeState":"","sex": None}
+        data["applyPerson"] = {"insuredRelationship":"","applyName":"","idType":"","idCard":"","mobile":"","applyStartTime":"","applyEndTime":"","emailAddress":"","province":"","city":"","area":"","email":"","address":"","idCardAddress":"","applyState": myState,"birthdate":"","sex": None}
+        data["claimCase"] = {"id": myId,"batchId": myBatchId,"batchNo": myBatchNo,"caseNo": myCaseNo,"applyNo":"","socialSecurityProcessNo":"","ticketNumber":0,"amountSummary":0,"expressageNo":"","startTime":"1970-01-01 00:00:00","endTime":"1970-01-01 00:00:00","videoFileStatus":1,"caseStatus": "02","caseSecondStatus":"","backReason":"","specialSign":"","physicalSign":0,"version":0,"createUser":"lihailong","createTime": myCreateTime,"updateUser":"","updateTime":"1970-01-01 00:00:00","delFlag":0,"responsibilityType": self.expenseTypeId,"qualityCheckType":"A","firstTrialConclusion":"","reviewConclusion":"","oneQualityCheckConclusion":"","twoQualityCheckConclusion":"","threeQualityCheckConclusion":"","videoFileNum":0,"caseEndDate":"1970-01-01 08:00:00","loanedDate":"1970-01-01 08:00:00","frozenSerial":"","giveName":"","giveNameCode":"","channel": myChannel,"reviewTime":"1970-01-01 00:00:00","qualityCheckBatchNo":"","synCaseStatus":"0","applicationAmount":0}
+        data["principalInsured"] = {"area":"","batchId":"","batchNo":"","belongToGroup":"","birthDate":"","caseId":"","caseNo":"","city":"","createTime":"","createUser":"","customerNo":"","delFlag":0,"dutyPlanType":"","empOnDuty":"","empOnDutyName":"","endTime":"","id":"","idCard":"","idCardAddress":"","idType":"","insuredId":"","insuredName":"","isLongTerm":0,"isSameAddress":0,"mobile":"","occupationType":"","province":"","repeatMsg":"","showAddress":"","socialAddress":"","startTime":"","updateTime":"","updateUser":"","version":0,"principalInsuredState": myState,"sex": None}
+        #data["insuredAccidentInfo"] = {"id":"","accidentDate":None,"accidentType": myaccident_type,"healthStatus":"","province":"","city":"","area":"","address":"","accidentResult":"","accidentCourse":"","accidentReason":"","version":0,"createUser":"","createTime":None,"updateUser":"","updateTime":"","delFlag":0}
+        #pprint(data)
         r2 = requests.post(tpa_config.url + "/tpaserver/tclaimcaseinsured/userInfo", headers = self.header, data=json.dumps(data))
-        #print(r2.json())
+        #pprint(r2.json())
         name = r2.json()['data']['insured']['insuredName']
-        address = r2.json()['data']['insured']['idCardAddress']
-        mobile = r2.json()['data']['insured']['mobile']
-        occupationType = r2.json()['data']['insured']['occupationType']
+        if r2.json()['data']['insured']['idCardAddress']:
+            myaddress = r2.json()['data']['insured']['idCardAddress']
+        else:
+            myaddress = "北京"
+        if r2.json()['data']['insured']['mobile']:
+            mobile = r2.json()['data']['insured']['mobile']
+        else:
+            mobile = "13141031234"
+        #occupationType = r2.json()['data']['insured']['occupationType']
         startTime = r2.json()['data']['insured']['startTime']
         sex = r2.json()['data']['insured']['sex']
+        gender = r2.json()['data']['insured']['sex']
         insuredId = r2.json()['data']['insured']['id']
         customer = r2.json()['data']['insured']['customerNo']
         applyPersonId = r2.json()['data']['applyPerson']['id']
@@ -211,50 +302,53 @@ class tpa_process():
         ticketNumber = r2.json()['data']['claimCase']['ticketNumber']
         qualityCheckType = r2.json()['data']['claimCase']['qualityCheckType']
         videoFileNum = r2.json()['data']['claimCase']['videoFileNum']
-        '''
-        codedata = {}
-        codedata["insured"] = {"id":"1499666575177842690","batchId":"1455436581635653633","caseId":"1455436581656625154","batchNo":"0203-00235","caseNo":"0203-00235-00002","customerNo":"4198648520","dutyPlanType":"","insuredName":"袁军","idType":"0","idCard":"152701197712100618","idCardAddress":"","mobile":"13255121110","birthDate":"1970-01-01","age":0,"version":1,"isLongTerm":1,"occupationType":"5","startTime":"2011-02-18","endTime":"2199-12-31","belongToGroup":"1","createUser":"lihailong","createTime":"2022-03-04 16:42:29","updateUser":"lihailong","updateTime":"2022-03-04 16:42:32","delFlag":0,"province":"110000","city":"110100","area":"110101","address":"test","repeatMsg":"","consNo":""}
-        codedata["insuranceApplicationId"] = "3"
-        codedata["insuredReceiver"] = {"id":"1499666575299477505","batchId":"1455436581635653633","caseId":"1455436581656625154","batchNo":"0203-00235","caseNo":"0203-00235-00002","bankType":1,"bankName":"中国建设银行","bankAccount":"622812345678951","bankCode":"8600020-中国建设银行","insuredRelationship":"00","version":0,"createUser":"lihailong","createTime":"2022-03-04 16:42:29","updateUser":"lihailong","updateTime":"2022-03-04 16:42:32","delFlag":0}
-        codedata["insuredAccidentInfo"] = {"id":"1499666575354003457","caseId":"1455436581656625154","batchId":"1455436581635653633","batchNo":"0203-00235","caseNo":"0203-00235-00002","accidentDate":"2022-03-01 00:00:00","accidentType":"200","province":"110000","city":"110100","area":"110101","address":"test","accidentResult":"","accidentCourse":"test","accidentReason":"","version":0,"createUser":"lihailong","createTime":"2022-03-04 16:42:29","updateUser":"lihailong","updateTime":"2022-03-07 17:19:49","delFlag":0,"healthStatus":""}
-        codedata["applyPerson"] = {"id":"1499666575249145857","caseId":"1455436581656625154","batchId":"1455436581635653633","batchNo":"0203-00235","caseNo":"0203-00235-00002","insuredRelationship":"GX01","createUser":"lihailong","createTime":"2022-03-04 16:42:29","updateUser":"lihailong","updateTime":"2022-03-04 16:42:32","delFlag":0}
-        codedata["claimCase"] = {"id":"1455436581656625154","batchId":1455436581635653600,"batchNo":"0203-00235","caseNo":"0203-00235-00002","applyNo":"","socialSecurityProcessNo":"","ticketNumber":4,"amountSummary":0,"expressageNo":"","startTime":"1970-01-01 00:00:00","endTime":"1970-01-01 00:00:00","videoFileStatus":1,"caseStatus":"02","caseSecondStatus":"","backReason":"","specialSign":"","physicalSign":0,"version":0,"createUser":"lihailong","createTime":"2021-11-02 15:28:16","updateUser":"lihailong","updateTime":"2022-03-07 17:19:49","delFlag":0,"responsibilityType":"1","qualityCheckType":"A","firstTrialConclusion":"","reviewConclusion":"","oneQualityCheckConclusion":"","twoQualityCheckConclusion":"","threeQualityCheckConclusion":"","videoFileNum":4,"caseEndDate":"1970-01-01 08:00:00","loanedDate":"1970-01-01 08:00:00","frozenSerial":"","giveName":"","giveNameCode":"","channel":"XH","reviewTime":"1970-01-01 00:00:00","qualityCheckBatchNo":"","synCaseStatus":"0","applicationAmount":0}
-        codedata["policyNo"] = "202012140933"
-        codedata["isItTrueBankAccount"] = False
-        codedata["insuranceCompanyId"]= "1"
-        '''
+        mybankaccount = "6234234234234"
 
         #保存受益人信息
         data = {}
-        data = {"batchId": myBatchId,"batchNo": myBatchNo,"benefitEndTime": None,"benefitIdCard": tpa_config.idCode,"benefitIdType": tpa_config.codeType,"benefitIdTypeName":"","benefitName": name,"benefitRatio":"1","benefitStartTime": startTime,"caseId": myId,"caseNo": myCaseNo,"createTime":"","createUser":"","delFlag":0,"email":"","mobile": mobile,"id":0,"idCardAddress": address,"isSameAddress":1,"permanentFlag":0,"relationAddress":"巴拉巴拉","relationArea":"110101","relationAreaName":"东城区","relationCity":"110100","relationCityName":"北京市","relationProvince":"110000","relationProvinceName":"北京市","relationToInsured":"00","relationToInsuredName":"","updateTime":"","updateUser":"","benefitState":"CHN","relationOccupationType": occupationType,"relationToAppntNo":"00","birthday": mybirthdate,"sex": sex}
+        data = {"batchId": myBatchId,"batchNo": myBatchNo,"benefitEndTime": None,"benefitIdCard": tpa_config.idCode,"benefitIdType": tpa_config.codeType,"benefitIdTypeName":"","benefitName": name,"benefitRatio":"1","benefitStartTime": startTime,"caseId": myId,"caseNo": myCaseNo,"createTime":"","createUser":"","delFlag":0,"email":"","mobile": mobile,"id":0,"idCardAddress": myaddress,"isSameAddress":1,"permanentFlag":0,"relationAddress": myaddress,"relationArea":"110101","relationAreaName":"东城区","relationCity":"110100","relationCityName":"北京市","relationProvince":"110000","relationProvinceName":"北京市","relationToInsured": myrelation,"relationToInsuredName":"","updateTime":"","updateUser":"","benefitState":"CHN","relationOccupationType":  myjob,"relationToAppntNo": myrelation,"birthday": mybirthdate,"sex": gender}
         #print(data)
         r = requests.post(tpa_config.url + "/tpaserver/tclaimcasebeneficiary/save", headers = self.header, data=json.dumps(data))
         print(r.json())
 
         #保存领款人信息,先查询受益人Id
-        data = {"caseId": myId}
+        data = {}
+        data["caseId"] = myId
         r = requests.post(tpa_config.url + "/tpaserver/tclaimcasebeneficiary/find", headers=self.header, data=json.dumps(data))
         beneficiaryId = r.json()['data'][0]['id']
-
         data = {}
-        data = {"bankAccount":"63434534534","bankBranch":"","bankCity":"","bankCityName":"","bankCode":"8600010-NTS集中代收付(工商银行)","bankName":"","bankProvince":"","bankProvinceName":"","bankType":2,"batchId": myBatchId,"wochongqi":"","batchNo": myBatchNo,"beneficiaryId": beneficiaryId,"beneficiaryName": name,"bankAccountName": name,"caseId": myId,"caseNo": myCaseNo,"createTime":"","createUser":"","delFlag":0,"email":"","id":0,"idCardAddress": address,"insuredRelationship":"00","bankProvince":"01","bankProvinceName":"安徽","bankCity":"01001","bankCityName":"东至","isSameAddress":1,"mobile": mobile,"payeeEndTime":"2199-12-31","payeeIdCard": tpa_config.idCode,"payeeIdType":"0","payeeIdTypeName":"","payeeName": name,"payeeStartTime": startTime,"permanentFlag":1,"relationAddress":"巴拉巴拉","relationArea":"110101","relationAreaName":"东城区","relationCity":"110100","relationCityName":"北京市","relationPhone":"","relationProvince":"110000","relationProvinceName":"北京市","updateTime":"","updateUser":"","version":0,"receiverState":"CHN","relationToBeneficiary":"00","payMode":"4","payforpubFlag":"0","birthday": mybirthdate,"sex": sex,"relationOccupationType": occupationType}
+        data = {"bankAccount": mybankaccount,"bankBranch":"","bankCity":"","bankCityName":"","bankCode":"8600010-NTS集中代收付(工商银行)","bankName":"","bankProvince":"","bankProvinceName":"","bankType":2,"batchId": myBatchId,"wochongqi":"","batchNo": myBatchNo,"beneficiaryId": beneficiaryId,"beneficiaryName": name,"bankAccountName": name,"caseId": myId,"caseNo": myCaseNo,"createTime":"","createUser":"","delFlag":0,"email":"","id":0,"idCardAddress": myaddress,"insuredRelationship": myrelation,"bankProvince":"01","bankProvinceName":"安徽","bankCity":"01001","bankCityName":"东至","isSameAddress":1,"mobile": mobile,"payeeEndTime":"2199-12-31","payeeIdCard": tpa_config.idCode,"payeeIdType":"0","payeeIdTypeName":"","payeeName": name,"payeeStartTime": startTime,"permanentFlag":1,"relationAddress": myaddress,"relationArea":"110101","relationAreaName":"东城区","relationCity":"110100","relationCityName":"北京市","relationPhone":"","relationProvince":"110000","relationProvinceName":"北京市","updateTime":"","updateUser":"","version":0,"receiverState":"CHN","relationToBeneficiary": mybenefrelation,"payMode":"4","payforpubFlag":"0","birthday": mybirthdate,"sex": gender,"relationOccupationType": myjob}
         r = requests.post(tpa_config.url + "/tpaserver/receiver/save", headers = self.header, data=json.dumps(data))
         print(r.json())
 
         #保存基本信息
         data = {}
-        data["insured"] = {"id": insuredId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"caseNo":myCaseNo,"customerNo": customer,"dutyPlanType":"","insuredName": name,"idType": tpa_config.codeType,"idCard": tpa_config.idCode,"idCardAddress": address,"mobile": mobile,"birthDate": mybirthdate,"age":0,"version":1,"isLongTerm":1,"occupationType": occupationType,"startTime": startTime,"endTime":"2199-12-31","belongToGroup":"1","createUser":"lihailong","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"province":"110000","city":"110100","area":"110102","address":"巴拉巴拉","repeatMsg":"","socialAddress":"","insuredTag":0,"principalInsuredRelation":"00","isSameAddress":0,"insuredState":"CHN","sex":sex,"consNo":""}
+        data["insured"] = {"id": insuredId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"caseNo":myCaseNo,"customerNo": customer,"dutyPlanType":"","insuredName": name,"idType": tpa_config.codeType,"idCard": tpa_config.idCode,"idCardAddress": myaddress,"mobile": mobile,"birthDate": mybirthdate,"age":0,"version":1,"isLongTerm":1,"occupationType": myjob,"startTime": self.applyStartTime,"endTime":"2199-12-31","belongToGroup":"1","createUser":"lihailong","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"province":"110000","city":"110100","area":"110102","address": myaddress,"repeatMsg":"","socialAddress":"","insuredTag":0,"principalInsuredRelation": myrelation,"isSameAddress":0,"insuredState":"CHN","sex": gender,"consNo":""}
         data["insuranceApplicationId"] = self.applicationId
-        data["insuredReceiver"] = {"id":"","bankName":"","bankAccount":"","insuredRelationship":"00","professionType":"","version":0,"createUser":"","createTime": None,"updateUser":"","updateTime":"","delFlag":0,"bankType":1}
-        data["applyPerson"] = {"id": applyPersonId,"caseId": myId,"batchId": myBatchId,"batchNo": myBatchNo,"caseNo": myCaseNo,"insuredRelationship":"00","applyName": name,"idType":tpa_config.codeType,"idCard": tpa_config.idCode,"applyStartTime": startTime,"applyEndTime":"2199-12-31","permanentFlag":0,"mobile": mobile,"email":"","province":"110000","city":"110100","area":"110102","address":"巴拉巴拉","idCardAddress": address,"isSameAddress":0,"applyState":"CHN","createUser":"lihailong","createTime": myCreateTime,"updateUser":"","updateTime":"1970-01-01 00:00:00","delFlag":0,"birthdate": mybirthdate,"sex": sex}
-        data["trustee"] = {"id": trusteeId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"caseNo": myCaseNo,"trusteeFlag":0,"trusteeType":"","trusteeRelation":"","trusteeName":"","idType":"","idCard":"","sex": None,"birthDate": None,"mobile":"","startTime": None,"endTime": None,"isLongTerm":0,"occupationType":"","trusteeState":"","province":"","city":"","area":"","address":"","idCardAddress":"","createUser":"lihailong","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"email":"","postcode":""}
+        data["insuredReceiver"] = {"id":"","bankName":"","bankAccount":"","insuredRelationship": myrelation,"professionType":"","version":0,"createUser":"","createTime": None,"updateUser":"","updateTime":"","delFlag":0,"bankType":1}
+        data["applyPerson"] = {"id": applyPersonId,"caseId": myId,"batchId": myBatchId,"batchNo": myBatchNo,"caseNo": myCaseNo,"insuredRelationship": myrelation,"applyName": name,"idType":tpa_config.codeType,"idCard": tpa_config.idCode,"applyStartTime": self.applyStartTime,"applyEndTime":"2199-12-31","permanentFlag":0,"mobile": mobile,"email":"","province":"110000","city":"110100","area":"110102","address":"巴拉巴拉","idCardAddress": myaddress,"isSameAddress":0,"applyState": myState,"createUser":"lihailong","createTime": None,"updateUser":"","updateTime":"1970-01-01 00:00:00","delFlag":0,"birthdate": mybirthdate,"sex": gender}
+        data["trustee"] = {"id": trusteeId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"caseNo": myCaseNo,"trusteeFlag":0,"trusteeType":"","trusteeRelation":"","trusteeName":"","idType":"","idCard":"","sex": gender,"birthDate": mybirthdate,"mobile":"","startTime": self.applyStartTime,"endTime":"2199-12-31","isLongTerm":0,"occupationType":"","trusteeState":"","province":"","city":"","area":"","address":"","idCardAddress":"","createUser":"lihailong","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"email":"","postcode":""}
         data["claimCase"] = {"id": myId,"batchId": myBatchId,"batchNo": myBatchNo,"caseNo": myCaseNo,"applyNo":"","socialSecurityProcessNo":"","ticketNumber": ticketNumber,"amountSummary": amountSum,"expressageNo":"","startTime":"1970-01-01 00:00:00","endTime":"1970-01-01 00:00:00","videoFileStatus": videoFileStatus,"caseStatus": "02","caseSecondStatus":"","backReason":"","specialSign":"","physicalSign":0,"version":0,"createUser":"lihailong","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"responsibilityType":"","qualityCheckType": qualityCheckType,"firstTrialConclusion":"","reviewConclusion":"","oneQualityCheckConclusion":"","twoQualityCheckConclusion":"","threeQualityCheckConclusion":"","videoFileNum": videoFileNum,"caseEndDate":"1970-01-01 08:00:00","loanedDate":"1970-01-01 08:00:00","frozenSerial":"","giveName":"","giveNameCode":"","channel": myChannel,"reviewTime":"1970-01-01 00:00:00","qualityCheckBatchNo":"","synCaseStatus":"0","applicationAmount":0,"importCaseRecordId":"0","importCasePassFlag":0,"importCaseBackFlag":0,"fundsProvided":""}
-        data["principalInsured"] = {"id": principalInsuredId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"dutyPlanType":"","caseNo": myCaseNo,"customerNo": customer,"occupationType": occupationType,"insuredName": name,"idType": tpa_config.codeType,"idCard": tpa_config.idCode,"belongToGroup":"1","startTime":"2011-02-18","endTime":"2199-12-31","isLongTerm":0,"province":"110000","city":"110100","area":"110102","address":"巴拉巴拉","idCardAddress": address,"principalInsuredState":"CHN","mobile": mobile,"birthDate": mybirthdate,"age":0,"version":0,"createUser":"","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"repeatMsg":"","isSameAddress":0,"socialAddress":"","insuredId": insuredId,"sex": sex}
+        data["principalInsured"] = {"id": principalInsuredId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"dutyPlanType":"","caseNo": myCaseNo,"customerNo": customer,"occupationType": myjob,"insuredName": name,"idType": tpa_config.codeType,"idCard": tpa_config.idCode,"belongToGroup":"1","startTime":"2011-02-18","endTime":"2199-12-31","isLongTerm":0,"province":"110000","city":"110100","area":"110102","address":"巴拉巴拉","idCardAddress": myaddress,"principalInsuredState":"CHN","mobile": mobile,"birthDate": mybirthdate,"age":0,"version":0,"createUser":"","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"repeatMsg":"","isSameAddress":0,"socialAddress":"","insuredId": insuredId,"sex": gender}
         data["policyNo"] = tpa_config.takeOrderParam[2]
         data["isItTrueBankAccount"] = False
         data["insuranceCompanyId"] = self.companyId
+        data["isItTrueBankAccount"] = None
+        data["showAddress"] = ""
+        #pprint(data)
         r = requests.post(tpa_config.url + "/tpaserver/tclaimcaseinsured/saveOrUpdate", headers = self.header, data=json.dumps(data))
-        print(r.json())
+        if r.json()['code'] == 0:
+            print("保存基本信息成功!")
+        else:
+            pprint(r.json())
+
+        #保存明细,先查询费用明细的药品/项目字典
+        r = requests.get(tpa_config.url + "/tpabaseserver/sysdictmedical/page?size=20&current=1&name=1&channel=" + myChannel, headers=self.header)
+        medicalList = r.json()['data']['records']
+        medical = random.choice(medicalList)
+        medicalName = medical['name']
+        medicalId = medical['id']
+        medicalCode = medical['standardCode']
 
         #上传影像件
         billList = []
@@ -296,7 +390,7 @@ class tpa_process():
             imageId = r.json()['data'][-1]['id']
             imageSeq = r.json()['data'][-1]['imageSeqNo']
             data = {}
-            data = {"billTypeName":None,"dischargeTime":"","hospitalizedTime":"","reckoningTime":None,"hospitalCode":"0000001","hospitalName":"上海中治职工医院","hospitalGrade":23,"hospitalGradeName":None,"diseaseDiagnosis":"O47.0","countAmount":"10","medicalInsuranceAmount":"10.00","unitSupplementaryPayAmount":0,"fundPayAmount":0,"medicalAidInsurancePay":0,"retireSupplementaryMedicalPay":0,"disabledSoldierAllowanceMedicalPay":0,"medicalInsuranceFundPay":0,"personalAccountRemainingAmount":0,"selfPay1":"0","startPayAmount":0,"exceedingLimitAmount":0,"selfPay2":0,"selfPayAmount":"10.00","personalAccountPayAmount":0,"ownExpensePayAmount":"10","personalCashPayAmount":0,"yearFundTotalPayAmount":0,"cumulativeMedicalInsuranceRangeAmount":0,"retireSupplyMedicalInsurancePay":0,"unitSupplyMedicalInsurancePay":0,"yearLargeTotalPayAmount":0,"insuranceCompanyPaymentAmount":0,"otherThirdPayAmount":0,"thirdPartyPayAmount":0,"subjoinPayAmount":0,"claimDetailType":"1","insuredType":"1","socialSecurityPaymentAmount":0,"medicalFundPayAmount":0,"hospitalDays":0,"hospitalFlag":2,"repeatStatus":None,"repeatMsg":None,"billCode":"20312030","billName":"","billDate": self.today_1,"caseStatus":None,"countDeductAmount":None,"diseaseNameBefore":"","diseaseName":"妊娠37整周之前的假临产","checkCode":"123456","checkAuthenticityStatus":"not_verified","checkAuthenticityStatusDesc":"未验真","imageTypeName":"增值税发票","imageType":"4","imageSubtype":"14","imageSubTypeName":"增值税发票","refusePaymentStatus":None,"remark":"","deductionAccount":None,"fixedPoint":0,"fixedPointName":"非定点","imageSeqNo":"GXlhl2023013100200001-32","settlementStatus":1,"settlementStatusName":"是","eventId":"0","eventNo":"","accidentType":"200","accidentReason":"","accidentReasonName":"","healthStatus":"03","cureDesc":"01","deathDate":None,"deformityDate":None,"accidentProvince":"650000","accidentCity":"652700","accidentArea":"652723","accidentAddress":"四姑娘山","hospitalAddress":"","repeatReasons":"","repeatDescribe":"","accResult2":"O47","accResult2Name":"假临产","accResult1":"OO4","accResult1Name":"与胎儿和羊膜腔及可能的分娩问题有关的孕产妇医疗(O30-O48）","hospitalNo":"","visitName":"","checkStatus":None,"fundSelfPay":0,"largeSelfPay":0,"exceedingMedicalFund":0,"billDutyType":"","isTrueFlag":None,"billOtherPays":[{"billId":"","selfPay1":"","selfPay2":"","ownExpensePayAmount":"","claimPayAmount":"","claimPayDate":"","claimPayUnit":"","claimPayUnitName":""}]}
+            data = {"billTypeName":None,"dischargeTime":"","hospitalizedTime":"","reckoningTime":None,"hospitalCode": hospitalCode,"hospitalName": hospitalName,"hospitalGrade": hospitalGrade,"hospitalGradeName":None,"diseaseDiagnosis": diseaseCode,"countAmount":"10","medicalInsuranceAmount":"10.00","unitSupplementaryPayAmount":0,"fundPayAmount":0,"medicalAidInsurancePay":0,"retireSupplementaryMedicalPay":0,"disabledSoldierAllowanceMedicalPay":0,"medicalInsuranceFundPay":0,"personalAccountRemainingAmount":0,"selfPay1":"0","startPayAmount":0,"exceedingLimitAmount":0,"selfPay2":0,"selfPayAmount":"10.00","personalAccountPayAmount":0,"ownExpensePayAmount":"10","personalCashPayAmount":0,"yearFundTotalPayAmount":0,"cumulativeMedicalInsuranceRangeAmount":0,"retireSupplyMedicalInsurancePay":0,"unitSupplyMedicalInsurancePay":0,"yearLargeTotalPayAmount":0,"insuranceCompanyPaymentAmount":0,"otherThirdPayAmount":0,"thirdPartyPayAmount":0,"subjoinPayAmount":0,"claimDetailType":"1","insuredType":"1","socialSecurityPaymentAmount":0,"medicalFundPayAmount":0,"hospitalDays":0,"hospitalFlag":2,"repeatStatus":None,"repeatMsg":None,"billCode":"20312030","billName":"","billDate": self.today_1,"caseStatus":None,"countDeductAmount":None,"diseaseNameBefore":"","diseaseName": diseaseName,"checkCode":"123456","checkAuthenticityStatus":"not_verified","checkAuthenticityStatusDesc":"未验真","imageTypeName":"增值税发票","imageType":"4","imageSubtype":"14","imageSubTypeName":"增值税发票","refusePaymentStatus":None,"remark":"","deductionAccount":None,"fixedPoint":0,"fixedPointName":"非定点","imageSeqNo": imageSeq,"settlementStatus":1,"settlementStatusName":"是","eventId":"0","eventNo":"","accidentType": myaccident,"accidentReason":"","accidentReasonName":"","healthStatus":"03","cureDesc":"01","deathDate":None,"deformityDate":None,"accidentProvince":"650000","accidentCity":"652700","accidentArea":"652723","accidentAddress":"四姑娘山","hospitalAddress":"","repeatReasons":"","repeatDescribe":"","accResult2":"O47","accResult2Name":"假临产","accResult1":"OO4","accResult1Name":"与胎儿和羊膜腔及可能的分娩问题有关的孕产妇医疗(O30-O48）","hospitalNo":"","visitName":"","checkStatus":None,"fundSelfPay":0,"largeSelfPay":0,"exceedingMedicalFund":0,"billDutyType":"","isTrueFlag":None,"billOtherPays":[{"billId":"","selfPay1":"","selfPay2":"","ownExpensePayAmount":"","claimPayAmount":"","claimPayDate":"","claimPayUnit":"","claimPayUnitName":""}]}
             data["batchId"] = myBatchId
             data["caseId"] = myId
             data["batchNo"] = myBatchNo
@@ -318,23 +412,15 @@ class tpa_process():
             r = requests.post(tpa_config.url + "/tpaserver/tclaimsettlementcasebill/saveOrUpdate", headers=self.header, data=json.dumps(data))
             #pprint(r.json())
 
-            #保存明细
-            data = {}
-            data = [{"costTypeName":"诊察费","costType":"AM002","costName":"","costNameCode":"","surgicalDiagnosisType":"","quantity":"1","drugName":"心电监护(进口)1","druglist":[{"id":3371304,"cmCode":None,"standardCode":"100015657061","name":"恒助儿童医用外科口罩50片4-13岁外科口罩药店同款一次性医用口罩","goodsType":None,"itemType":None,"pinyin":None,"factor":"","dataSource":None,"price":None,"content":None,"remark":None,"status":None,"delFlag":None,"createTime":None,"updateTime":None,"createUser":None,"updateUser":None,"planningArea":None}],"selfPay1":"10","selfRatio":0,"selfPay2":0,"ownExpensePayAmount":0,"insuranceCompanyPaymentAmount":0,"otherThirdPaymentAmount":0,"unitPrice":"10.0","deductAmount":0,"deductCause":"","amount":"10","billId": imageId,"billNo": myBillNo,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"caseNo": myCaseNo,"deductionCostReason":"99","deductionCostReasonName":"其他","goodsId":3371287,"goodsCode":"BJZLML00000244","principalInsuredIdType":"0","principalInsuredIdCode": tpa_config.idCode,"saveFlag":1,"index":0,"specification":"个"}]
+            data = []
+            datainfo = {"costTypeName": costName,"costType": costCode,"costName":"","costNameCode":"","surgicalDiagnosisType":"","quantity":"1","drugName": medicalName,"druglist": medicalList,"selfPay1":"10","selfRatio":0,"selfPay2":0,"ownExpensePayAmount":0,"insuranceCompanyPaymentAmount":0,"otherThirdPaymentAmount":0,"unitPrice":"10.0","deductAmount":0,"deductCause":"","amount":"10","billId": imageId,"billNo": myBillNo,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"caseNo": myCaseNo,"deductionCostReason":"99","deductionCostReasonName":"其他","goodsId": medicalId,"goodsCode": medicalCode,"principalInsuredIdType":"0","principalInsuredIdCode": tpa_config.idCode,"saveFlag":1,"index":0,"specification":"个"}
+            data.append(datainfo)
             r = requests.post(tpa_config.url + "/tpaserver/tclaimcasebilldeductiondetail/saveOrUpdate", headers=self.header, data=json.dumps(data))
             print(r.json())
-            '''
-            data = {}
-            data["caseId"] = myId
-            r = requests.post(tpa_config.url + "/tpaserver/tclaimsettlementcasebill/list", headers=self.header, data=json.dumps(data))
-            print("***********")
-            print(r.json())
-            for i in r.json()['data']:
-                billList.append(i['ossid'])
-                '''
 
         #提交录入,1.获取inusredId;2.获取eventId,eventNo;3.获取detailId;4.获取票据ossid
         r = requests.get(tpa_config.url + "/tpaserver/tclaimcaseprincipalinsured/findByCaseId/" + myId, headers=self.header)
+        #print(r.json())
         insuredId = r.json()['data']['insuredId']
         data = {}
         data["caseId"] = myId
@@ -352,15 +438,12 @@ class tpa_process():
         r = requests.post(tpa_config.url + "/tpaserver/tclaimsettlementcasebill/list", headers=self.header, data=json.dumps(data))
         for i in r.json()['data']:
             billList.append(i['ossid'])
-        #print("****************")
-        #print(billList)
-        #print("****************")
         data = {}
         data["caseId"] = myId
         data["billNoList"] = billList
-        data["claimCaseBillSaveReq"] = {"ossid": ossid,"id": imageId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"caseNo": myCaseNo,"billNo": myBillNo,"billType":"3","billTypeName":None,"visitTime": self.today_1,"dischargeTime":None,"hospitalizedTime":None,"reckoningTime":None,"hospitalCode":"0000001","hospitalName":"上海中治职工医院","hospitalGrade":23,"hospitalGradeName":None,"diseaseDiagnosis":"O47.0","countAmount":10,"medicalInsuranceAmount":10,"unitSupplementaryPayAmount":0,"fundPayAmount":0,"medicalAidInsurancePay":0,"retireSupplementaryMedicalPay":0,"disabledSoldierAllowanceMedicalPay":0,"medicalInsuranceFundPay":0,"personalAccountRemainingAmount":0,"selfPay1":0,"startPayAmount":0,"exceedingLimitAmount":0,"selfPay2":0,"selfPayAmount":10,"personalAccountPayAmount":0,"ownExpensePayAmount":10,"personalCashPayAmount":0,"yearFundTotalPayAmount":0,"cumulativeMedicalInsuranceRangeAmount":0,"retireSupplyMedicalInsurancePay":0,"unitSupplyMedicalInsurancePay":0,"yearLargeTotalPayAmount":0,"insuranceCompanyPaymentAmount":0,"otherThirdPayAmount":0,"thirdPartyPayAmount":0,"subjoinPayAmount":0,"claimDetailType":"1","insuredType":"1","socialSecurityPaymentAmount":0,"medicalFundPayAmount":0,"hospitalDays":0,"hospitalFlag":2,"repeatStatus":0,"repeatMsg":None,"billCode": myBillCode,"billName":"","billDate": self.today_1,"caseStatus":None,"countDeductAmount":None,"diseaseNameBefore":"","diseaseName":"妊娠37整周之前的假临产","checkCode":"123456","checkAuthenticityStatus":"not_verified","checkAuthenticityStatusDesc":"未验真","imageTypeName":"增值税发票","imageType":"4","imageSubtype":"14","imageSubTypeName":"增值税发票","refusePaymentStatus":None,"remark":"","deductionAccount":None,"fixedPoint":0,"fixedPointName":"非定点","imageSeqNo": imageSeq,"settlementStatus":1,"settlementStatusName":"是","eventId": eventId,"eventNo": eventNo,"accidentType":"200","accidentReason":"","accidentReasonName":"","healthStatus":"03","cureDesc":"01","deathDate":None,"deformityDate":None,"accidentProvince":"650000","accidentCity":"652700","accidentArea":"652723","accidentAddress":"四姑娘山","hospitalAddress":"","repeatReasons":"","repeatDescribe":"","accResult2":"O47","accResult2Name":"假临产","accResult1":"OO4","accResult1Name":"与胎儿和羊膜腔及可能的分娩问题有关的孕产妇医疗(O30-O48）","hospitalNo":"","visitName":"","checkStatus":None,"fundSelfPay":0,"largeSelfPay":0,"exceedingMedicalFund":0,"claimCaseAccidentInfoId":""}
+        data["claimCaseBillSaveReq"] = {"ossid": ossid,"id": imageId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"caseNo": myCaseNo,"billNo": myBillNo,"billType":"3","billTypeName":None,"visitTime": self.today_1,"dischargeTime":None,"hospitalizedTime":None,"reckoningTime":None,"hospitalCode": hospitalCode,"hospitalName": hospitalName,"hospitalGrade": hospitalGrade,"hospitalGradeName":None,"diseaseDiagnosis": diseaseCode,"countAmount":10,"medicalInsuranceAmount":10,"unitSupplementaryPayAmount":0,"fundPayAmount":0,"medicalAidInsurancePay":0,"retireSupplementaryMedicalPay":0,"disabledSoldierAllowanceMedicalPay":0,"medicalInsuranceFundPay":0,"personalAccountRemainingAmount":0,"selfPay1":0,"startPayAmount":0,"exceedingLimitAmount":0,"selfPay2":0,"selfPayAmount":10,"personalAccountPayAmount":0,"ownExpensePayAmount":10,"personalCashPayAmount":0,"yearFundTotalPayAmount":0,"cumulativeMedicalInsuranceRangeAmount":0,"retireSupplyMedicalInsurancePay":0,"unitSupplyMedicalInsurancePay":0,"yearLargeTotalPayAmount":0,"insuranceCompanyPaymentAmount":0,"otherThirdPayAmount":0,"thirdPartyPayAmount":0,"subjoinPayAmount":0,"claimDetailType":"1","insuredType":"1","socialSecurityPaymentAmount":0,"medicalFundPayAmount":0,"hospitalDays":0,"hospitalFlag":2,"repeatStatus":0,"repeatMsg":None,"billCode": myBillCode,"billName":"","billDate": self.today_1,"caseStatus":None,"countDeductAmount":None,"diseaseNameBefore":"","diseaseName": diseaseName,"checkCode":"123456","checkAuthenticityStatus":"not_verified","checkAuthenticityStatusDesc":"未验真","imageTypeName":"增值税发票","imageType":"4","imageSubtype":"14","imageSubTypeName":"增值税发票","refusePaymentStatus":None,"remark":"","deductionAccount":None,"fixedPoint":0,"fixedPointName":"非定点","imageSeqNo": imageSeq,"settlementStatus":1,"settlementStatusName":"是","eventId": eventId,"eventNo": eventNo,"accidentType":"200","accidentReason":"","accidentReasonName":"","healthStatus":"03","cureDesc":"01","deathDate":None,"deformityDate":None,"accidentProvince":"650000","accidentCity":"652700","accidentArea":"652723","accidentAddress":"四姑娘山","hospitalAddress":"","repeatReasons":"","repeatDescribe":"","accResult2":"O47","accResult2Name":"假临产","accResult1":"OO4","accResult1Name":"与胎儿和羊膜腔及可能的分娩问题有关的孕产妇医疗(O30-O48）","hospitalNo":"","visitName":"","checkStatus":None,"fundSelfPay":0,"largeSelfPay":0,"exceedingMedicalFund":0,"claimCaseAccidentInfoId":""}
         data["caseBillDeductionDetails"] = [{"id": detailId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"caseNo": myCaseNo,"costType":"AM002","quantity":1,"unitPrice":10,"deductAmount":0,"billId": imageId,"amount":10,"deductCause":"","createUser":None,"createTime":None,"updateUser":None,"updateTime":None,"delFlag":0,"costNameCode":"","surgicaNo":"","surgicalDiagnosisType":"","deductionCostReason":"99","selfPay1":10,"selfPay2":0,"ownExpensePayAmount":0,"insuranceCompanyPaymentAmount":0,"otherThirdPaymentAmount":0,"drugName":"心电监护(进口)1","selfRatio":0,"specification":"个","model":"","classAFee":None,"goodsCode":"BJZLML00000244","goodsId":"3371287","checkLabelCodes":None,"checkLabelNames":None,"principalInsuredIdType":tpa_config.codeType,"principalInsuredIdCode": tpa_config.idCode,"saveFlag":1,"costTypeName":"诊察费","costName":None,"deductionCostReasonName":"其他","channel": myChannel,"index":0}]
-        data["insuredInfoVo"] = {"insured":{"id": insuredId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"caseNo": myCaseNo,"customerNo": customer,"dutyPlanType":"","insuredName": name,"idType": tpa_config.codeType,"idCard": tpa_config.idCode,"idCardAddress": address,"mobile": mobile,"birthDate": mybirthdate,"age":0,"version":1,"isLongTerm":1,"occupationType": occupationType,"startTime":"2011-02-18","endTime":"2199-12-31","belongToGroup":"1","createUser":"lihailong","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"province":"110000","city":"110100","area":"110102","address":"巴拉巴拉","repeatMsg":"","socialAddress":"","insuredTag":0,"principalInsuredRelation":"00","isSameAddress":0,"insuredState":"CHN","sex": sex},"insuredReceiver":{"id":"","bankName":"","bankAccount":"","insuredRelationship":"00","professionType":"","version":0,"createUser":"","createTime":None,"updateUser":"","updateTime":"","delFlag":0,"bankType":1},"applyPerson":{"id": applyPersonId,"caseId": myId,"batchId": myBatchId,"batchNo": myBatchNo,"caseNo": myCaseNo,"insuredRelationship":"00","applyName": name,"idType": tpa_config.codeType,"idCard": tpa_config.idCode,"applyStartTime":"2011-02-18","applyEndTime":"2199-12-31","permanentFlag":0,"mobile": mobile,"email":"","province":"110000","city":"110100","area":"110102","address":"巴拉巴拉","idCardAddress": address,"isSameAddress":0,"applyState":"CHN","createUser":"lihailong","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"birthdate":"1977-12-10","sex": sex},"policyNo": tpa_config.takeOrderParam[2],"insuranceApplicationId": self.applicationId,"insuranceCompanyId": self.companyId}
+        data["insuredInfoVo"] = {"insured":{"id": insuredId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"caseNo": myCaseNo,"customerNo": customer,"dutyPlanType":"","insuredName": name,"idType": tpa_config.codeType,"idCard": tpa_config.idCode,"idCardAddress": myaddress,"mobile": mobile,"birthDate": mybirthdate,"age":0,"version":1,"isLongTerm":1,"occupationType": myjob,"startTime":"2011-02-18","endTime":"2199-12-31","belongToGroup":"1","createUser":"lihailong","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"province":"110000","city":"110100","area":"110102","address": myaddress,"repeatMsg":"","socialAddress":"","insuredTag":0,"principalInsuredRelation":"00","isSameAddress":0,"insuredState":"CHN","sex": gender},"insuredReceiver":{"id":"","bankName":"","bankAccount":"","insuredRelationship": myrelation,"professionType":"","version":0,"createUser":"","createTime":None,"updateUser":"","updateTime":"","delFlag":0,"bankType":1},"applyPerson":{"id": applyPersonId,"caseId": myId,"batchId": myBatchId,"batchNo": myBatchNo,"caseNo": myCaseNo,"insuredRelationship": myrelation,"applyName": name,"idType": tpa_config.codeType,"idCard": tpa_config.idCode,"applyStartTime": self.applyStartTime,"applyEndTime":"2199-12-31","permanentFlag":0,"mobile": mobile,"email":"","province":"110000","city":"110100","area":"110102","address": myaddress,"idCardAddress": myaddress,"isSameAddress":0,"applyState":"CHN","createUser":"lihailong","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"birthdate":"1977-12-10","sex": gender},"policyNo": tpa_config.takeOrderParam[2],"insuranceApplicationId": self.applicationId,"insuranceCompanyId": self.companyId}
         data["comment"] = "我独不解中国人何以于旧状况那么心平气和,于较新的机运就这么疾首蹙额;于已成之局那么委曲求全;于初兴之事就这么求全责备？"
         #pprint(data)
         r = requests.post(tpa_config.url + "/tpaserver/tclaimcase/ocr/submit", headers=self.header, data=json.dumps(data))
@@ -411,6 +494,7 @@ class tpa_process():
         myId = r.json()['data'][0]['id']
         myBatchId = r.json()['data'][0]['batchId']
         myBatchNo = r.json()['data'][0]['batchNo']
+        myNo = r.json()['data'][0]['batchNo']
         myId = r.json()['data'][0]['id']
         myId = r.json()['data'][0]['id']
         for i in r.json()['data']:
@@ -418,9 +502,9 @@ class tpa_process():
         data = {}
         data["caseId"] = caseId
         data["billNoList"] = ossidList
-        data["claimCaseBillSaveReq"] = {"ossid": ossidList[0],"id": myId,"batchId": myBatchId,"caseId": caseId,"batchNo": myBatchNo,"caseNo": caseNo,"billNo":"20230222140034","billType":"3","billTypeName":None,"visitTime":"2023-02-20","dischargeTime":None,"hospitalizedTime":None,"reckoningTime":None,"hospitalCode":"0000001","hospitalName":"上海中治职工医院","hospitalGrade":23,"hospitalGradeName":None,"diseaseDiagnosis":"O47.0","countAmount":10,"medicalInsuranceAmount":10,"unitSupplementaryPayAmount":0,"fundPayAmount":0,"medicalAidInsurancePay":0,"retireSupplementaryMedicalPay":0,"disabledSoldierAllowanceMedicalPay":0,"medicalInsuranceFundPay":0,"personalAccountRemainingAmount":0,"selfPay1":0,"startPayAmount":0,"exceedingLimitAmount":0,"selfPay2":0,"selfPayAmount":10,"personalAccountPayAmount":0,"ownExpensePayAmount":10,"personalCashPayAmount":0,"yearFundTotalPayAmount":0,"cumulativeMedicalInsuranceRangeAmount":0,"retireSupplyMedicalInsurancePay":0,"unitSupplyMedicalInsurancePay":0,"yearLargeTotalPayAmount":0,"insuranceCompanyPaymentAmount":0,"otherThirdPayAmount":0,"thirdPartyPayAmount":0,"subjoinPayAmount":0,"claimDetailType":"1","insuredType":"1","socialSecurityPaymentAmount":0,"medicalFundPayAmount":0,"hospitalDays":0,"hospitalFlag":2,"repeatStatus":0,"repeatMsg":None,"billCode":"39675408","billName":"","billDate":"2023-02-20","caseStatus":None,"countDeductAmount":None,"diseaseNameBefore":"","diseaseName":"妊娠37整周之前的假临产","checkCode":"123456","checkAuthenticityStatus":"not_verified","checkAuthenticityStatusDesc":"未验真","imageTypeName":"增值税发票","imageType":"4","imageSubtype":"14","imageSubTypeName":"增值税发票","refusePaymentStatus":None,"remark":"","deductionAccount":None,"fixedPoint":0,"fixedPointName":"非定点","imageSeqNo":"GXlhl2023022000300001-1","settlementStatus":1,"settlementStatusName":"是","eventId":"1077953558902472704","eventNo":"20230222000005","accidentType":"200","accidentReason":"","accidentReasonName":"","healthStatus":"03","cureDesc":"01","deathDate":None,"deformityDate":None,"accidentProvince":"650000","accidentCity":"652700","accidentArea":"652723","accidentAddress":"四姑娘山","hospitalAddress":"","repeatReasons":"","repeatDescribe":"","accResult2":"O47","accResult2Name":"假临产","accResult1":"OO4","accResult1Name":"与胎儿和羊膜腔及可能的分娩问题有关的孕产妇医疗(O30-O48）","hospitalNo":"","visitName":"","checkStatus":None,"fundSelfPay":0,"largeSelfPay":0,"exceedingMedicalFund":0}
+        data["claimCaseBillSaveReq"] = {"ossid": ossidList[0],"id": myId,"batchId": myBatchId,"caseId": caseId,"batchNo": myBatchNo,"caseNo": caseNo,"billNo":"20230222140034","billType":"3","billTypeName":None,"visitTime":"2023-02-20","dischargeTime":None,"hospitalizedTime":None,"reckoningTime":None,"hospitalCode":"0000001","hospitalName":"上海中治职工医院","hospitalGrade":23,"hospitalGradeName":None,"diseaseDiagnosis": diseaseCode,"countAmount":10,"medicalInsuranceAmount":10,"unitSupplementaryPayAmount":0,"fundPayAmount":0,"medicalAidInsurancePay":0,"retireSupplementaryMedicalPay":0,"disabledSoldierAllowanceMedicalPay":0,"medicalInsuranceFundPay":0,"personalAccountRemainingAmount":0,"selfPay1":0,"startPayAmount":0,"exceedingLimitAmount":0,"selfPay2":0,"selfPayAmount":10,"personalAccountPayAmount":0,"ownExpensePayAmount":10,"personalCashPayAmount":0,"yearFundTotalPayAmount":0,"cumulativeMedicalInsuranceRangeAmount":0,"retireSupplyMedicalInsurancePay":0,"unitSupplyMedicalInsurancePay":0,"yearLargeTotalPayAmount":0,"insuranceCompanyPaymentAmount":0,"otherThirdPayAmount":0,"thirdPartyPayAmount":0,"subjoinPayAmount":0,"claimDetailType":"1","insuredType":"1","socialSecurityPaymentAmount":0,"medicalFundPayAmount":0,"hospitalDays":0,"hospitalFlag":2,"repeatStatus":0,"repeatMsg":None,"billCode":"39675408","billName":"","billDate":"2023-02-20","caseStatus":None,"countDeductAmount":None,"diseaseNameBefore":"","diseaseName": diseaseName,"checkCode":"123456","checkAuthenticityStatus":"not_verified","checkAuthenticityStatusDesc":"未验真","imageTypeName":"增值税发票","imageType":"4","imageSubtype":"14","imageSubTypeName":"增值税发票","refusePaymentStatus":None,"remark":"","deductionAccount":None,"fixedPoint":0,"fixedPointName":"非定点","imageSeqNo":"GXlhl2023022000300001-1","settlementStatus":1,"settlementStatusName":"是","eventId":"1077953558902472704","eventNo":"20230222000005","accidentType":"200","accidentReason":"","accidentReasonName":"","healthStatus":"03","cureDesc":"01","deathDate":None,"deformityDate":None,"accidentProvince":"650000","accidentCity":"652700","accidentArea":"652723","accidentAddress":"四姑娘山","hospitalAddress":"","repeatReasons":"","repeatDescribe":"","accResult2":"O47","accResult2Name":"假临产","accResult1":"OO4","accResult1Name":"与胎儿和羊膜腔及可能的分娩问题有关的孕产妇医疗(O30-O48）","hospitalNo":"","visitName":"","checkStatus":None,"fundSelfPay":0,"largeSelfPay":0,"exceedingMedicalFund":0}
         data["caseBillDeductionDetails"] = [{"id":"1628273527700357121","batchId":"1627566278761807873","caseId":"1627566278849888257","batchNo":"GXlhl20230220003","caseNo":"GXlhl2023022000300001","costType":"AM002","quantity":1,"unitPrice":10,"deductAmount":0,"billId":"1077953040624910336","amount":10,"deductCause":"","createUser":None,"createTime":None,"updateUser":None,"updateTime":None,"delFlag":0,"costNameCode":"","surgicaNo":"","surgicalDiagnosisType":"","deductionCostReason":"99","selfPay1":10,"selfPay2":0,"ownExpensePayAmount":0,"insuranceCompanyPaymentAmount":0,"otherThirdPaymentAmount":0,"drugName":"心电监护(进口)1","selfRatio":0,"specification":"个","model":"","classAFee":None,"goodsCode":"BJZLML00000244","goodsId":"3371287","checkLabelCodes":None,"checkLabelNames":None,"principalInsuredIdType":"0","principalInsuredIdCode":"152701197712100618","saveFlag":1,"costTypeName":"诊察费","costName":None,"deductionCostReasonName":"其他","channel":"XH","index":0}]
-        data["insuredInfoVo"] = {"insured":{"id":"1628273507467034625","batchId":"1627566278761807873","caseId":"1627566278849888257","batchNo":"GXlhl20230220003","caseNo":"GXlhl2023022000300001","customerNo":"4198648520","dutyPlanType":"","insuredName":"袁军","idType":"0","idCard":"152701197712100618","idCardAddress":"北京市巴拉巴拉","mobile":"13255121110","birthDate":"1977-12-10","age":0,"version":1,"isLongTerm":1,"occupationType":"K002017","startTime":"2011-02-18","endTime":"2199-12-31","belongToGroup":"1","createUser":"lihailong","createTime":"2023-02-22 14:00:31","updateUser":"lihailong","updateTime":"2023-02-24 11:37:34","delFlag":0,"province":"110000","city":"110100","area":"110102","address":"巴拉巴拉","repeatMsg":"","socialAddress":"","insuredTag":0,"principalInsuredRelation":"00","isSameAddress":0,"insuredState":"CHN","sex":"0"},"insuredReceiver":{"id":"","bankName":"","bankAccount":"","insuredRelationship":"00","professionType":"","version":0,"createUser":"","createTime":None,"updateUser":"","updateTime":"","delFlag":0,"bankType":1},"applyPerson":{"id":"1628273507777413121","caseId":"1627566278849888257","batchId":"1627566278761807873","batchNo":"GXlhl20230220003","caseNo":"GXlhl2023022000300001","insuredRelationship":"00","applyName":"袁军","idType":"0","idCard":"152701197712100618","applyStartTime":"2011-02-18","applyEndTime":"2199-12-31","permanentFlag":0,"mobile":"13255121110","email":"","province":"110000","city":"110100","area":"110102","address":"巴拉巴拉","idCardAddress":"北京市巴拉巴拉","isSameAddress":0,"applyState":"CHN","createUser":"lihailong","createTime":"2023-02-22 14:00:31","updateUser":"lihailong","updateTime":"2023-02-24 11:37:34","delFlag":0,"birthdate":"1977-12-10","sex":"0"},"policyNo":"202012140933","insuranceApplicationId":"3","insuranceCompanyId":"1"}
+        data["insuredInfoVo"] = {"insured":{"id":"1628273507467034625","batchId":"1627566278761807873","caseId":"1627566278849888257","batchNo":"GXlhl20230220003","caseNo":"GXlhl2023022000300001","customerNo":"4198648520","dutyPlanType":"","insuredName":"袁军","idType":"0","idCard":"152701197712100618","idCardAddress":"北京市巴拉巴拉","mobile":"13255121110","birthDate":"1977-12-10","age":0,"version":1,"isLongTerm":1,"occupationType": myjob,"startTime":"2011-02-18","endTime":"2199-12-31","belongToGroup":"1","createUser":"lihailong","createTime":"2023-02-22 14:00:31","updateUser":"lihailong","updateTime":"2023-02-24 11:37:34","delFlag":0,"province":"110000","city":"110100","area":"110102","address":"巴拉巴拉","repeatMsg":"","socialAddress":"","insuredTag":0,"principalInsuredRelation":"00","isSameAddress":0,"insuredState":"CHN","sex":"0"},"insuredReceiver":{"id":"","bankName":"","bankAccount":"","insuredRelationship":"00","professionType":"","version":0,"createUser":"","createTime":None,"updateUser":"","updateTime":"","delFlag":0,"bankType":1},"applyPerson":{"id":"1628273507777413121","caseId":"1627566278849888257","batchId":"1627566278761807873","batchNo":"GXlhl20230220003","caseNo":"GXlhl2023022000300001","insuredRelationship":"00","applyName":"袁军","idType":"0","idCard":"152701197712100618","applyStartTime": applyStartTime,"applyEndTime":"2199-12-31","permanentFlag":0,"mobile":"13255121110","email":"","province":"110000","city":"110100","area":"110102","address":"巴拉巴拉","idCardAddress":"北京市巴拉巴拉","isSameAddress":0,"applyState":"CHN","createUser":"lihailong","createTime":"2023-02-22 14:00:31","updateUser":"lihailong","updateTime":"2023-02-24 11:37:34","delFlag":0,"birthdate":"1977-12-10","sex":"0"},"policyNo":"202012140933","insuranceApplicationId":"3","insuranceCompanyId":"1"}
         #print(r.json())
         return None
 
@@ -468,12 +552,12 @@ if __name__ == "__main__":
     tpa_log.logger.info("########### 脚本开始执行 #############\n")
     mytest = tpa_process()
     for i in range(n):
-        #mytest.takeOrder(tpa_config.takeOrderParam)
-        #mytest.submitMake()
-        #mytest.inputReceive()
-        #mytest.myInput(tpa_config.idCode)
-        mytest.dataReview()
+        mytest.takeOrder(tpa_config.takeOrderParam)
+        mytest.submitMake()
+        mytest.inputReceive()
+        mytest.myInput(tpa_config.idCode)
+        #mytest.dataReview()
         #mytest.firstReceive()
-        #mytest.secondReceive()
+        mytest.secondReceive()
         pass
     tpa_log.logger.debug("########### 脚本执行结束 #############")
