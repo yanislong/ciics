@@ -161,6 +161,7 @@ class tpa_process():
             myBatchId = r.json()['data']['records'][0]['batchId']
             myBatchNo = r.json()['data']['records'][0]['batchNo']
             myCaseNo = r.json()['data']['records'][0]['caseNo']
+            mybirthdate = tpa_config.idCode[6:10] + "-" + tpa_config.idCode[10:12] + "-" + tpa_config.idCode[12:14]
             print(myBatchNo)
         else:
             tpa_log.logger.info("我的录入列表没有数据")
@@ -177,7 +178,6 @@ class tpa_process():
             myChannel = r1.json()['data']['channel']
             myCaseSource = r1.json()['data']['caseSource']
             myResponsibilityType = r1.json()['data']['responsibilityType']
-            mybirthdate = tpa_config.idCode[6:10] + "-" + tpa_config.idCode[10:12] + "-" + tpa_config.idCode[12:14]
         else:
             tpa_log.logger.info("查看案件异常,批次号: " + str(myBatchNo))
             return None
@@ -279,30 +279,39 @@ class tpa_process():
         #pprint(data)
         r2 = requests.post(tpa_config.url + "/tpaserver/tclaimcaseinsured/userInfo", headers = self.header, data=json.dumps(data))
         #pprint(r2.json())
-        name = r2.json()['data']['insured']['insuredName']
-        if r2.json()['data']['insured']['idCardAddress']:
-            myaddress = r2.json()['data']['insured']['idCardAddress']
+        if r2.json()['code'] == 0:
+            name = r2.json()['data']['insured']['insuredName']
+            if r2.json()['data']['insured']['idCardAddress']:
+                myaddress = r2.json()['data']['insured']['idCardAddress']
+            else:
+                myaddress = "北京"
+            if r2.json()['data']['insured']['mobile']:
+                mobile = r2.json()['data']['insured']['mobile']
+            else:
+                mobile = "13141031234"
+            if r2.json()['data']['insured']['birthDate']:
+                mybirthdate = r2.json()['data']['insured']['birthDate']
+            else:
+                mybirthdate = tpa_config.idCode[6:10] + "-" + tpa_config.idCode[10:12] + "-" + tpa_config.idCode[12:14]
+            myprincipalInsuredRelation = r2.json()['data']['insured']['principalInsuredRelation']
+            startTime = r2.json()['data']['insured']['startTime']
+            sex = r2.json()['data']['insured']['sex']
+            gender = r2.json()['data']['insured']['sex']
+            insuredId = r2.json()['data']['insured']['id']
+            customer = r2.json()['data']['insured']['customerNo']
+            applyPersonId = r2.json()['data']['applyPerson']['id']
+            trusteeId = r2.json()['data']['trustee']['id']
+            principalInsuredId = r2.json()['data']['principalInsured']['id']
+            amountSum = r2.json()['data']['claimCase']['amountSummary']
+            videoFileStatus = r2.json()['data']['claimCase']['videoFileStatus']
+            ticketNumber = r2.json()['data']['claimCase']['ticketNumber']
+            qualityCheckType = r2.json()['data']['claimCase']['qualityCheckType']
+            videoFileNum = r2.json()['data']['claimCase']['videoFileNum']
+            mybankaccount = "6234234234234"
+            #occupationType = r2.json()['data']['insured']['occupationType']
         else:
-            myaddress = "北京"
-        if r2.json()['data']['insured']['mobile']:
-            mobile = r2.json()['data']['insured']['mobile']
-        else:
-            mobile = "13141031234"
-        #occupationType = r2.json()['data']['insured']['occupationType']
-        startTime = r2.json()['data']['insured']['startTime']
-        sex = r2.json()['data']['insured']['sex']
-        gender = r2.json()['data']['insured']['sex']
-        insuredId = r2.json()['data']['insured']['id']
-        customer = r2.json()['data']['insured']['customerNo']
-        applyPersonId = r2.json()['data']['applyPerson']['id']
-        trusteeId = r2.json()['data']['trustee']['id']
-        principalInsuredId = r2.json()['data']['principalInsured']['id']
-        amountSum = r2.json()['data']['claimCase']['amountSummary']
-        videoFileStatus = r2.json()['data']['claimCase']['videoFileStatus']
-        ticketNumber = r2.json()['data']['claimCase']['ticketNumber']
-        qualityCheckType = r2.json()['data']['claimCase']['qualityCheckType']
-        videoFileNum = r2.json()['data']['claimCase']['videoFileNum']
-        mybankaccount = "6234234234234"
+            print(tpa_config.idCode + " 获取承保数据失败!")
+            return None
 
         #保存受益人信息
         data = {}
@@ -324,15 +333,15 @@ class tpa_process():
         #保存基本信息
         data = {}
         data["insured"] = {"id": insuredId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"caseNo":myCaseNo,"customerNo": customer,"dutyPlanType":"","insuredName": name,"idType": tpa_config.codeType,"idCard": tpa_config.idCode,"idCardAddress": myaddress,"mobile": mobile,"birthDate": mybirthdate,"age":0,"version":1,"isLongTerm":1,"occupationType": myjob,"startTime": self.applyStartTime,"endTime":"2199-12-31","belongToGroup":"1","createUser":"lihailong","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"province":"110000","city":"110100","area":"110102","address": myaddress,"repeatMsg":"","socialAddress":"","insuredTag":0,"principalInsuredRelation": myrelation,"isSameAddress":0,"insuredState":"CHN","sex": gender,"consNo":""}
-        data["insuranceApplicationId"] = self.applicationId
         data["insuredReceiver"] = {"id":"","bankName":"","bankAccount":"","insuredRelationship": myrelation,"professionType":"","version":0,"createUser":"","createTime": None,"updateUser":"","updateTime":"","delFlag":0,"bankType":1}
-        data["applyPerson"] = {"id": applyPersonId,"caseId": myId,"batchId": myBatchId,"batchNo": myBatchNo,"caseNo": myCaseNo,"insuredRelationship": myrelation,"applyName": name,"idType":tpa_config.codeType,"idCard": tpa_config.idCode,"applyStartTime": self.applyStartTime,"applyEndTime":"2199-12-31","permanentFlag":0,"mobile": mobile,"email":"","province":"110000","city":"110100","area":"110102","address":"巴拉巴拉","idCardAddress": myaddress,"isSameAddress":0,"applyState": myState,"createUser":"lihailong","createTime": None,"updateUser":"","updateTime":"1970-01-01 00:00:00","delFlag":0,"birthdate": mybirthdate,"sex": gender}
-        data["trustee"] = {"id": trusteeId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"caseNo": myCaseNo,"trusteeFlag":0,"trusteeType":"","trusteeRelation":"","trusteeName":"","idType":"","idCard":"","sex": gender,"birthDate": mybirthdate,"mobile":"","startTime": self.applyStartTime,"endTime":"2199-12-31","isLongTerm":0,"occupationType":"","trusteeState":"","province":"","city":"","area":"","address":"","idCardAddress":"","createUser":"lihailong","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"email":"","postcode":""}
+        data["applyPerson"] = {"id": applyPersonId,"caseId": myId,"batchId": myBatchId,"batchNo": myBatchNo,"caseNo": myCaseNo,"insuredRelationship": myrelation,"applyName": name,"idType":tpa_config.codeType,"idCard": tpa_config.idCode,"applyStartTime": self.applyStartTime,"applyEndTime":"2199-12-31","permanentFlag":0,"mobile": mobile,"email":"","province":"110000","city":"110100","area":"110102","address": myaddress,"idCardAddress": myaddress,"isSameAddress":0,"applyState": myState,"createUser":"lihailong","createTime": None,"updateUser":"","updateTime":"1970-01-01 00:00:00","delFlag":0,"birthdate": mybirthdate,"sex": gender}
+        data["trustee"] = {"id": trusteeId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"caseNo": myCaseNo,"trusteeFlag":0,"trusteeType":"","trusteeRelation":"","trusteeName":"","idType":"","idCard":"","sex": None,"birthDate": None,"mobile":"","startTime": None,"endTime": None,"isLongTerm":0,"occupationType":"","trusteeState":"","province":"","city":"","area":"","address":"","idCardAddress":"","createUser":"lihailong","createTime": None,"updateUser":"lihailong","updateTime": None,"delFlag":0,"email":"","postcode":""}
         data["claimCase"] = {"id": myId,"batchId": myBatchId,"batchNo": myBatchNo,"caseNo": myCaseNo,"applyNo":"","socialSecurityProcessNo":"","ticketNumber": ticketNumber,"amountSummary": amountSum,"expressageNo":"","startTime":"1970-01-01 00:00:00","endTime":"1970-01-01 00:00:00","videoFileStatus": videoFileStatus,"caseStatus": "02","caseSecondStatus":"","backReason":"","specialSign":"","physicalSign":0,"version":0,"createUser":"lihailong","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"responsibilityType":"","qualityCheckType": qualityCheckType,"firstTrialConclusion":"","reviewConclusion":"","oneQualityCheckConclusion":"","twoQualityCheckConclusion":"","threeQualityCheckConclusion":"","videoFileNum": videoFileNum,"caseEndDate":"1970-01-01 08:00:00","loanedDate":"1970-01-01 08:00:00","frozenSerial":"","giveName":"","giveNameCode":"","channel": myChannel,"reviewTime":"1970-01-01 00:00:00","qualityCheckBatchNo":"","synCaseStatus":"0","applicationAmount":0,"importCaseRecordId":"0","importCasePassFlag":0,"importCaseBackFlag":0,"fundsProvided":""}
-        data["principalInsured"] = {"id": principalInsuredId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"dutyPlanType":"","caseNo": myCaseNo,"customerNo": customer,"occupationType": myjob,"insuredName": name,"idType": tpa_config.codeType,"idCard": tpa_config.idCode,"belongToGroup":"1","startTime":"2011-02-18","endTime":"2199-12-31","isLongTerm":0,"province":"110000","city":"110100","area":"110102","address":"巴拉巴拉","idCardAddress": myaddress,"principalInsuredState":"CHN","mobile": mobile,"birthDate": mybirthdate,"age":0,"version":0,"createUser":"","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"repeatMsg":"","isSameAddress":0,"socialAddress":"","insuredId": insuredId,"sex": gender}
+        data["principalInsured"] = {"id": principalInsuredId,"batchId": myBatchId,"caseId": myId,"batchNo": myBatchNo,"dutyPlanType":"","caseNo": myCaseNo,"customerNo": customer,"occupationType": myjob,"insuredName": name,"idType": tpa_config.codeType,"idCard": tpa_config.idCode,"belongToGroup":"1","startTime":"2011-02-18","endTime":"2199-12-31","isLongTerm":0,"province":"110000","city":"110100","area":"110102","address": myaddress,"idCardAddress": myaddress,"principalInsuredState":"CHN","mobile": mobile,"birthDate": mybirthdate,"age":0,"version":0,"createUser":"","createTime": myCreateTime,"updateUser":"lihailong","updateTime": myCreateTime,"delFlag":0,"repeatMsg":"","isSameAddress":0,"socialAddress":"","insuredId": insuredId,"sex": gender}
+        data["insuranceApplicationId"] = self.applicationId
         data["policyNo"] = tpa_config.takeOrderParam[2]
-        data["isItTrueBankAccount"] = False
         data["insuranceCompanyId"] = self.companyId
+        data["isItTrueBankAccount"] = False
         data["isItTrueBankAccount"] = None
         data["showAddress"] = ""
         #pprint(data)
