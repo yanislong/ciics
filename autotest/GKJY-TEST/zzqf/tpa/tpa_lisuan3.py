@@ -237,6 +237,7 @@ class tpa_process():
 
 if __name__ == "__main__":
     tpa_log.logger.info("########### 脚本开始执行 #############\n")
+    '''
     mytest = tpa_process()
     try:
         mytest.getBillInfo(sys.argv[1])
@@ -246,3 +247,15 @@ if __name__ == "__main__":
     #mytest.billexpress()
     #mytest.getSocial()
     #mytest.getexpre()
+    '''
+    heji = float(input("合记金额:"))
+    tongchoujijinzhifu = float(input("统筹基金支付金额:"))
+    zifuer = float(input("自付二金额:"))
+    zifei = float(input("自费金额:"))
+    disanfangzhifu = float(input("第三方支付金额:"))
+    tichujine = float(input("剔除金额:"))
+    qifujine = float(input("起付金额:"))
+    leijiyipeifujine = float(input("累计赔付金额:"))
+    bili = float(input("赔付比例:"))
+    helijine = (heji - tongchoujijinzhifu - zifuer - zifei - disanfangzhifu - tichujine - qifujine -leijiyipeifujine) * bili
+    print("计算合理金额为:\n" + str(helijine))
