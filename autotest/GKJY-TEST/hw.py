@@ -544,6 +544,13 @@ def uiauto_redirect_c():
     sk.close()
     return redirect('uiauto_www')
 
+@app.route('/testdata_redirect', methods=['GET','POST'])
+def testdata_redirect():
+    get_mode = request.form["m"]
+    #print(get_mode)
+    subprocess.Popen('python3 /root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_main.py', shell=True)
+    return redirect('uiauto_www')
+
 @app.route('/uiauto_redirect_a', methods=['GET','POST'])
 def uiauto_redirect_a():
     get_mode = request.form["m"]
@@ -579,6 +586,28 @@ def uiauto_www():
         logurl = config.runui_ip
     return render_template('ciics_ui_result.html', result=(www_result,logurl, random.random()))
 
+@app.route('/testdata', methods=['GET','POST'])
+def testdata():
+    if request.method == "GET":
+        try:
+            get_mode = request.args.get("imode")
+        except:
+            get_mode = "tpa"
+        if not get_mode:
+            get_mode = "tpa"
+        print(get_mode)
+    mydata = lhlSql()
+    www_result = mydata.getUiautoResult(get_mode)
+    beforedata = ""
+    num = 1
+    with open('/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_config.py','r') as f:
+        for line in f.readlines():
+            num += 1
+            if line[0] != "#" and num > 8:
+                beforedata = beforedata + line
+        #print(beforedata)
+    return render_template('testdata.html', result=(www_result,beforedata,))
+
 @app.route('/jianmei', methods=['GET','POST'])
 def jianmei():
     request.environ["Access-Control-Allow-Origin"] = "*"
@@ -597,3 +626,4 @@ def myabc():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True,port="8888")
+    #testdata()

@@ -23,6 +23,7 @@
       <p>UI自动化  <a href="uiauto">!进入!</a></p>
       <p>接口自动化  <a href="interfaceList">!进入!</a></p>
       <p>脚本自动化  <a href="shelllist">!进入!</a></p>
+      <input name="submit" type="image" value="ee" src="{{url_for('static',filename='image/eeo.svg')}}" />
     </div>
     <div class="ok">
       <p class="attention">※  {{result[0][3]}} ※ </p>
@@ -34,7 +35,9 @@
   <p>你的浏览器不支持HTML5音频，你可以<a href="{{url_for('static',filename='vidio/tuihou.mp3')}}">下载</a>这个音频文件。</p>
   <source src="{{url_for('static',filename='vidio/tuihou.mp3')}}" type="audio/ogg">
   </audio>
-<!--<iframe src="{{url_for('static',filename='vidio/tuihou.mp3')}}" allow="autoplay"/>-->
+  <audio autoplay="autoplay"  preload="auto" loop="loop"  src="{{url_for('static', filename='vidio/tuihou.mp3')}}">
+  </audio>
+<iframe src="{{url_for('static',filename='vidio/tuihou.mp3')}}" allow="autoplay"/>
 </div>
 </body>
 </html>

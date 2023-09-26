@@ -7,3 +7,44 @@
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 485-722-982
+ * Serving Flask app "hw" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://172.17.0.2:8888/ (Press CTRL+C to quit)
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 113-640-386
+172.17.0.1 - - [30/Aug/2023 13:27:17] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2023 13:27:17] "GET /static/css/mikutap.css HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2023 13:27:17] "GET /static/image/eeo.svg HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2023 13:27:17] "GET /static/vidio/tuihou.mp3 HTTP/1.1" 200 -
+172.17.0.1 - - [30/Aug/2023 13:27:18] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
+172.17.0.1 - - [30/Aug/2023 13:27:18] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
+172.17.0.1 - - [30/Aug/2023 13:27:18] "[35m[1mGET /static/vidio/tuihou.mp3 HTTP/1.1[0m" 206 -
+172.17.0.1 - - [30/Aug/2023 13:27:18] "GET /static/image/favicon.ico HTTP/1.1" 200 -
+ * Detected change in '/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/tpa_config.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 113-640-386
+ * Detected change in '/root/mygg/ciics/autotest/UiAuto/remoteServer.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 113-640-386
+ * Detected change in '/root/mygg/ciics/autotest/UiAuto/remoteServer.py', reloading
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.26.12) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+ * Debugger is active!
+ * Debugger PIN: 113-640-386

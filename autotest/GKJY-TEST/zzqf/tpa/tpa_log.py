@@ -11,7 +11,7 @@ handler = logging.FileHandler('log.txt')
 handler.setLevel(logging.DEBUG)
 LOG_FORMAT= "%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - line: %(lineno)d - %(message)s"
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S %a"
-LOGDIR = "./log/"
+LOGDIR = "/root/mygg/ciics/autotest/GKJY-TEST/zzqf/tpa/log/"
 FNAME = "ciics.log"
 console=logging.StreamHandler()
 console.setLevel(logging.DEBUG)

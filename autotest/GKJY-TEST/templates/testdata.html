@@ -43,14 +43,15 @@
 <table class="dataintable">
 <thead>
 <tr>
-<th>系统</th><th>UI自动化执行测试的功能</th><th>操作</th>
+<th>系统</th><th>前置数据</th><th>生成数据涉及到的流程(目前需要后台预设好)</th><th>操作</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td rowspan="10" style="width:200px">TPA作业理赔系统</td>
+<td rowspan="10" style="width:500px">{{result[1]}}</td>
 <td>收单</td><td rowspan="10">
-<form method="post" action="/uiauto_redirect_w"><input type="hidden" name="m" value="tpa" /><button style='display:block;margin:0 auto'>执行自动化脚本</button></form></td>
+	<form method="post" action="/testdata_redirect"><input type="hidden" name="m" value="tpa" /><button style='display:block;margin:0 auto'>执行生成数据脚本</button><p>执行后跳转至执行结果页面，执行结果待后台程序结束后才回回显</p></form></td>
 </td>
 </tr>
 <tr><td>收单提交</td></tr>

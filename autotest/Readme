@@ -2,6 +2,7 @@ test
 2.7 > 3.7.1
 https://www.cnblogs.com/yard/p/10083843.html
 
+
 python使用pip安装模块出现ReadTimeoutError: HTTPSConnectionPool的解决方法
 https://blog.csdn.net/qq_44146952/article/details/104831483
 pip install -i https://pypi.douban.com/simple module_name
